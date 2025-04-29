@@ -137,6 +137,17 @@ Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at 
 
 ---
 
+### 🛠️ Switching Folder Structure
+
+To apply a specific structure, update your `RepoGen.json` configuration:
+
+```json
+{
+  "FoldersStructureModel": "MODEL_2"
+}
+```
+---
+
 ### 🧩 Choosing a Structure
 
 | Model     | Ideal For                         | Separation Level | Complexity |
@@ -145,6 +156,10 @@ Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at 
 | `MODEL_2` | Enterprise/layered applications   | High             | Medium     |
 | `MODEL_3` | Domain-driven, microservices apps | Very High        | High       |
 
+> 💡 **Note:** You can switch models at any time by changing `FoldersStructureModel` in `RepoGen.json` and regenerating structure using:
+```bash
+dotnet tool run DEFC.Util.RepoGen set --structure -f
+```
 
 ## 🏁 Usage Guide
 #### Step 1 – Configuration
@@ -164,6 +179,12 @@ dotnet tool run DEFC.Util.RepoGen initial -f
 dotnet tool run DEFC.Util.RepoGen set --structure
 ```
 #### Step 4 – Explore and utilize tool commands as needed
+
+- To inforce change set up the repository pattern folder structure:
+```bash
+dotnet tool run DEFC.Util.RepoGen set --structure -f
+```
+
 - To test the database connection:
 ```bash
 dotnet tool run DEFC.Util.RepoGen test --db-connection

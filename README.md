@@ -160,6 +160,8 @@ To apply a specific structure, update your `RepoGen.json` configuration:
 ```bash
 dotnet tool run DEFC.Util.RepoGen set --structure -f
 ```
+> 🔄 **Tip:** You can change the structure model at any time, but it's best to apply it before generating repositories.
+
 
 ## 🏁 Usage Guide
 #### Step 1 – Configuration

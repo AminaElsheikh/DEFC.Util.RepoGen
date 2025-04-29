@@ -107,9 +107,12 @@ Below are the supported options:
 
 ---
 
-### 🏗️ `MODEL_1` – Default (Clean Architecture Inspired)
+### 🧱 `MODEL_1` – Default (Clean Architecture Inspired)
 
 Best for most small-to-medium applications that follow the **clean architecture** pattern, separating concerns by functionality.
+
+Use this model if you're working on a small or mid-size project, MVP, or prototype where you want clean architecture but don’t need complex 
+layering. It offers a fast, productive setup with minimal overhead.
 
 ✅ **Use When**: You want rapid setup, straightforward separation, and a clean layered style.
 
@@ -119,6 +122,8 @@ Best for most small-to-medium applications that follow the **clean architecture*
 
 Groups the code into classic layered architecture: **Presentation, Application, Domain, Infrastructure**.
 
+Use this model in enterprise applications where layering improves collaboration, testing, and scalability. 
+Ideal for large teams working across separate domains or microservices.
 
 ✅ **Use When**: You're working on enterprise or scalable apps with well-defined **domain and infrastructure separation**.
 
@@ -128,6 +133,8 @@ Groups the code into classic layered architecture: **Presentation, Application, 
 
 Implements **Hexagonal (Onion) Architecture**, emphasizing **dependency inversion** and modularity.
 
+Choose this model if you're applying Domain-Driven Design, building microservices, or want maximum testability and modularity. 
+It’s ideal when infrastructure is expected to evolve independently of business logic.
 
 ✅ **Use When**: You want **maximum decoupling** and a structure ready for **testing, microservices**, or **DDD**.
 

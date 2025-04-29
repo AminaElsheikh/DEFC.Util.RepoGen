@@ -18,7 +18,7 @@ Server stored procedures, accelerating clean architecture development.
 - [📝 License](#-license)
 - [📞 Contact](#-contact)
 - [🐞 Issues](#-issues)
-- [Other Nugets](#other-nugets)
+- [📦 Other Nugets](#other-nugets)
 - [💖 Donation](#-donation)
 
 ## ℹ️ About
@@ -98,6 +98,54 @@ When you first initialize the tool with the following command:
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial
 ```
+## 📁 Folder Structure Models
+
+`DEFC.Util.RepoGen` supports multiple folder structure models that enforce clean, maintainable architectures by default.  
+You can define your preferred structure via the `FoldersStructureModel` property in your `RepoGen.json` configuration file.
+
+Below are the supported options:
+
+---
+
+### 🏗️ `MODEL_1` – Default (Clean Architecture Inspired)
+
+Best for most small-to-medium applications that follow the **clean architecture** pattern, separating concerns by functionality.
+
+✅ **Use When**: You want rapid setup, straightforward separation, and a clean layered style.
+
+---
+
+### 🧱 `MODEL_2` – Layered Architecture
+
+Groups the code into classic layered architecture: **Presentation, Application, Domain, Infrastructure**.
+
+
+✅ **Use When**: You're working on enterprise or scalable apps with well-defined **domain and infrastructure separation**.
+
+---
+
+### 🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)
+
+Implements **Hexagonal (Onion) Architecture**, emphasizing **dependency inversion** and modularity.
+
+
+✅ **Use When**: You want **maximum decoupling** and a structure ready for **testing, microservices**, or **DDD**.
+
+---
+
+### 🧩 Choosing a Structure
+
+| Model     | Ideal For                         | Separation Level | Complexity |
+|-----------|-----------------------------------|------------------|------------|
+| `MODEL_1` | Simple projects, quick start      | Medium           | Low        |
+| `MODEL_2` | Enterprise/layered applications   | High             | Medium     |
+| `MODEL_3` | Domain-driven, microservices apps | Very High        | High       |
+
+> 💡 **Note:** You can switch models at any time by changing `FoldersStructureModel` in `RepoGen.json` and regenerating structure using:
+```bash
+dotnet tool run DEFC.Util.RepoGen set --structure
+```
+
 
 ## 🏁 Usage Guide
 #### Step 1 – Configuration
@@ -232,7 +280,7 @@ If you're interested in contributing to the project, please follow these guideli
 
 We welcome contributions and feedback to improve the tool!
 
-## Other Nugets
+## 📦 Other Nugets
 ### DEFC.Util.DataValidation
 - For using: [Nuget](https://www.nuget.org/packages/DEFC.Util.DataValidation)
 - Read: [Dev.to](https://dev.to/aminaelsheikh/data-validation-nuget-package-kco)

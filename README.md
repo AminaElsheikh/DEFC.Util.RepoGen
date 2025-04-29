@@ -11,7 +11,7 @@ Server stored procedures, accelerating clean architecture development.
 - [🛠️ Prerequisites](#️-prerequisites)
 - [📦 Installation](#-installation)
 - [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
-- [📁 Folder Structure Models](#-folder-structure-models)  <-- Place here
+- [📁 Folder Structure Models](#-folder-structure-models)
 - [🏁 Usage Guide](#-usage-guide)
 - [🔔 Important Notes](#-important-notes)
 - [💡 Example Usage](#-example-usage)

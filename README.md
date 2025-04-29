@@ -103,40 +103,37 @@ dotnet tool run DEFC.Util.RepoGen initial
 `DEFC.Util.RepoGen` supports multiple folder structure models that enforce clean, maintainable architectures by default.  
 You can define your preferred structure via the `FoldersStructureModel` property in your `RepoGen.json` configuration file.
 
-Below are the supported options:
+Below are the supported models:
 
 ---
 
 ### 🧱 `MODEL_1` – Default (Clean Architecture Inspired)
 
-Best for most small-to-medium applications that follow the **clean architecture** pattern, separating concerns by functionality.
+Ideal for small to medium-sized applications that follow the **clean architecture** pattern with clear separation of concerns.
 
-Use this model if you're working on a small or mid-size project, MVP, or prototype where you want clean architecture but don’t need complex 
-layering. It offers a fast, productive setup with minimal overhead.
-
-✅ **Use When**: You want rapid setup, straightforward separation, and a clean layered style.
+✅ **Use When**:
+- You want rapid setup, a simple layered structure, and maintainable code organization.
+- You're building MVPs, prototypes, or smaller-scale systems where full enterprise layering is unnecessary.
 
 ---
 
 ### 🧱 `MODEL_2` – Layered Architecture
 
-Groups the code into classic layered architecture: **Presentation, Application, Domain, Infrastructure**.
+Follows a classic **layered architecture** with distinct separation between **Presentation**, **Application**, **Domain**, and **Infrastructure**.
 
-Use this model in enterprise applications where layering improves collaboration, testing, and scalability. 
-Ideal for large teams working across separate domains or microservices.
-
-✅ **Use When**: You're working on enterprise or scalable apps with well-defined **domain and infrastructure separation**.
+✅ **Use When**:
+- You're building scalable, enterprise-level applications with well-defined layers.
+- Collaboration, modular testing, and separation of domain logic are priorities — especially for large teams or multi-service environments.
 
 ---
 
 ### 🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)
 
-Implements **Hexagonal (Onion) Architecture**, emphasizing **dependency inversion** and modularity.
+Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at the core and isolating infrastructure via ports and adapters.
 
-Choose this model if you're applying Domain-Driven Design, building microservices, or want maximum testability and modularity. 
-It’s ideal when infrastructure is expected to evolve independently of business logic.
-
-✅ **Use When**: You want **maximum decoupling** and a structure ready for **testing, microservices**, or **DDD**.
+✅ **Use When**:
+- You need **maximum decoupling** between business logic and external systems (DB, APIs, etc.).
+- You're embracing **Domain-Driven Design (DDD)**, building **microservices**, or prioritizing **testability and modularity**.
 
 ---
 
@@ -147,11 +144,6 @@ It’s ideal when infrastructure is expected to evolve independently of business
 | `MODEL_1` | Simple projects, quick start      | Medium           | Low        |
 | `MODEL_2` | Enterprise/layered applications   | High             | Medium     |
 | `MODEL_3` | Domain-driven, microservices apps | Very High        | High       |
-
-> 💡 **Note:** You can switch models at any time by changing `FoldersStructureModel` in `RepoGen.json` and regenerating structure using:
-```bash
-dotnet tool run DEFC.Util.RepoGen set --structure
-```
 
 
 ## 🏁 Usage Guide

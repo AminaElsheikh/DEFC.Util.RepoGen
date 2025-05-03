@@ -4,22 +4,22 @@ Server stored procedures, accelerating clean architecture development.
 
 ## Table of Contents
 
-- [ℹ️ About](#️about)
-- [🎯 Objective](#objective)
-- [🚀 Benefits](#benefits)
-- [🔌 Supported Technologies](#supported-technologies)
-- [🛠️ Prerequisites](#️prerequisites)
-- [📦 Installation](#installation)
-- [🔧 RepoGen.json – Tool Configuration](#repogenjson--tool-configuration)
-- [📁 Folder Structure Models](#folder-structure-models)
-- [🏁 Usage Guide](#usage-guide)
-- [🔔 Important Notes](#important-notes)
-- [💡 Example Usage](#example-usage)
-- [📝 License](#license)
-- [📞 Contact](#contact)
-- [🐞 Issues](#issues)
+- [ℹ️ About](#️-about)
+- [🎯 Objective](#-objective)
+- [🚀 Benefits](#-benefits)
+- [🔌 Supported Technologies](#-supported-technologies)
+- [🛠️ Prerequisites](#️-prerequisites)
+- [📦 Installation](#-installation)
+- [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
+- [📁 Folder Structure Models](#-folder-structure-models)
+- [🏁 Usage Guide](#-usage-guide)
+- [🔔 Important Notes](#-important-notes)
+- [💡 Example Usage](#-example-usage)
+- [📝 License](#-license)
+- [📞 Contact](#-contact)
+- [🐞 Issues](#-issues)
 - [📦 Other Nugets](#other-nugets)
-- [💖 Donation](#donation)
+- [💖 Donation](#-donation)
 
 ## ℹ️ About
 **DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate repositories and unit of work patterns mapped to SQL Server stored procedures. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a clean architecture within .NET applications.

@@ -96,8 +96,8 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 - **DBContextName**: The base name for your DbContext. The tool will automatically append "DBContext" to it.
 - **ConnectionString**: A valid connection string to your database.
 - **Namespace**: The application namespace used in the generated code.
-- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal).
-- **LoggerCode**: Controls logger generation for command and batch executions.
+- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal, `MODEL_CUSTOM` for user-defined model).
+- **LoggerCode**: Controls logger generation for command and batch executions. [see](#-folder-structure-models)
 
 > 💡 **Note:** The tool automatically appends `DBContext`, `Repository`, and `Service` to the relevant names, so you don’t need to include those suffixes in your configuration.
 
@@ -260,7 +260,7 @@ dotnet tool run DEFC.Util.RepoGen initial
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial -f
 ```
-### 🔧 1. Configuration
+### 🔧 2. Configuration
  Customize the 'RepoGen.json' file with your specific data and save the changes. [see](#-repogenjson--tool-configuration)
 ### 🗂️ 3. Structure Setup
 - Generate the repository pattern folder structure:

@@ -251,9 +251,7 @@ dotnet tool run DEFC.Util.RepoGen set --structure
 ```
 
 ## 🏁 Usage Guide
-### 📁 1. Configuration
- Customize the 'RepoGen.json' file with your specific data and save the changes.
-### 📁 2. Initialization
+### 📁 1. Initialization
 - Initialize the RepoGen tool
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial
@@ -262,6 +260,8 @@ dotnet tool run DEFC.Util.RepoGen initial
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial -f
 ```
+### 🔧 1. Configuration
+ Customize the 'RepoGen.json' file with your specific data and save the changes. [see](#-repogenjson--tool-configuration)
 ### 🗂️ 3. Structure Setup
 - Generate the repository pattern folder structure:
 ```bash

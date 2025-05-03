@@ -4,22 +4,22 @@ Server stored procedures, accelerating clean architecture development.
 
 ## Table of Contents
 
-- [ℹ️ About](#️-about)
-- [🎯 Objective](#-objective)
-- [🚀 Benefits](#-benefits)
-- [🔌 Supported Technologies](#-supported-technologies)
-- [🛠️ Prerequisites](#️-prerequisites)
-- [📦 Installation](#-installation)
-- [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
-- [📁 Folder Structure Models](#-folder-structure-models)
-- [🏁 Usage Guide](#-usage-guide)
-- [🔔 Important Notes](#-important-notes)
-- [💡 Example Usage](#-example-usage)
-- [📝 License](#-license)
-- [📞 Contact](#-contact)
-- [🐞 Issues](#-issues)
+- [ℹ️ About](#️about)
+- [🎯 Objective](#objective)
+- [🚀 Benefits](#benefits)
+- [🔌 Supported Technologies](#supported-technologies)
+- [🛠️ Prerequisites](#️prerequisites)
+- [📦 Installation](#installation)
+- [🔧 RepoGen.json – Tool Configuration](#repogenjson--tool-configuration)
+- [📁 Folder Structure Models](#folder-structure-models)
+- [🏁 Usage Guide](#usage-guide)
+- [🔔 Important Notes](#important-notes)
+- [💡 Example Usage](#example-usage)
+- [📝 License](#license)
+- [📞 Contact](#contact)
+- [🐞 Issues](#issues)
 - [📦 Other Nugets](#other-nugets)
-- [💖 Donation](#-donation)
+- [💖 Donation](#donation)
 
 ## ℹ️ About
 **DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate repositories and unit of work patterns mapped to SQL Server stored procedures. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a clean architecture within .NET applications.
@@ -27,7 +27,7 @@ Server stored procedures, accelerating clean architecture development.
 This tool empowers development teams to enforce consistent patterns, improve productivity, and accelerate the creation of scalable applications that interact with databases via stored procedures.
 
 ### Created by
-Amina El-Sheikh
+This tool was created by **Amina El-Sheikh**.
 
 ## 🎯 Objective
 NuGet tool that implements the **repository** and **unit of work** patterns by automating the creation of repositories mapped to database **stored procedures (SPs)**. This can greatly enhance developer productivity and help maintain a clean architecture in .NET applications.
@@ -43,6 +43,15 @@ The tool is designed to work seamlessly within modern .NET environments using cl
 
 ### 🗄️ Database Providers
 - Microsoft SQL Server *(current supported provider)*
+
+> ⚠️ **Note on Other Databases**
+> `DEFC.Util.RepoGen` does **not support PostgreSQL or MySQL** because:
+>
+> * These databases do not provide the same stored procedure metadata needed for automated mapping.
+> * Their procedural SQL dialects differ significantly from T-SQL (used in SQL Server).
+> * The tool is tightly coupled to SQL Server’s stored procedure introspection capabilities.
+>
+> 💡 For PostgreSQL or MySQL, consider using EF Core’s model- or code-first patterns instead.
 
 ### ⚙️ .NET Versions
 - ✅ .NET 6
@@ -137,6 +146,84 @@ Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at 
 
 ---
 
+### 🧱 `MODEL_CUSTOM` – Custom User-Defined Structure
+
+`MODEL_CUSTOM` allows you to define your **own folder structure** to fit your specific project architecture. 
+This model is designed for advanced users or teams that already follow a customized layout and want to integrate `RepoGen` seamlessly.
+
+✅ **Use When**:
+- You have an existing architecture not covered by the default models.
+- You require full control over the names and hierarchy of folders.
+- You are integrating RepoGen into a legacy or uniquely structured project.
+
+---
+
+#### 🗂️ `custom_model.json`
+
+This file defines your custom folder structure. Below is a basic example:
+
+```json
+{
+  // This file defines the custom project folder structure.
+  // You can add nested folders using "Children" arrays.
+  // Required folders must exist to satisfy the structure mapping.
+
+  "Structure": [
+    { "Name": "DbContext" },     // Folder for database context files
+    { "Name": "DTOs" },          // Folder for Data Transfer Objects
+    { "Name": "Interfaces" },    // Folder for repository interfaces
+    { "Name": "Models" },        // Folder for domain or EF models
+    { "Name": "Repositories" },  // Folder for concrete repositories
+    { "Name": "Services" },      // Folder for service layer classes
+    { "Name": "UnitOfWork" }     // Folder for unit of work implementation
+
+    // Example of a nested structure:
+    // {
+    //   "Name": "Core",
+    //   "Children": [
+    //     { "Name": "Repositories" },
+    //     { "Name": "Services" }
+    //   ]
+    // }
+  ]
+}
+
+```
+> 💡 **Note:** You can define **nested folders** using the `Children` property to represent complex, hierarchical structures.
+#### 🗂️ `structure_mapper.json`
+This file maps required logical components to the folders defined in your structure:
+```json
+{
+  // RequiredMappings define the logical folders your application MUST include.
+  // Each key is a required logical role (like 'DTOs'), and the value is the actual folder name in your structure.
+
+  "RequiredMappings": {
+    "DbContext": "DbContext",         // Logical role for EF DbContext files
+    "DTOs": "DTOs",                   // Logical role for DTOs
+    "IRepositories": "Interfaces",    // Logical role for repository interfaces
+    "Models": "Models",               // Logical role for models/entities
+    "Repositories": "Repositories",   // Logical role for concrete repo implementations
+    "Services": "Services",           // Logical role for business/service layer
+    "UnitOfWork": "UnitOfWork"        // Logical role for unit of work class
+  }
+}
+
+```
+> 💡 **Note:** All required mappings must be defined for the tool to operate correctly. 
+You may add additional folders, but the ones listed in the `RequiredMappings` must be present in your structure.
+#### 🛠️ Activating MODEL_CUSTOM
+To use this model, update your `RepoGen.json` configuration file:
+```json
+{
+  "FoldersStructureModel": "MODEL_CUSTOM"
+}
+
+```
+Then, apply your custom folder structure by running:
+```bash
+dotnet tool run DEFC.Util.RepoGen set --structure
+
+```
 ### 🛠️ Switching Folder Structure
 
 To apply a specific structure, update your `RepoGen.json` configuration:
@@ -155,83 +242,79 @@ To apply a specific structure, update your `RepoGen.json` configuration:
 | `MODEL_1` | Simple projects, quick start      | Medium           | Low        |
 | `MODEL_2` | Enterprise/layered applications   | High             | Medium     |
 | `MODEL_3` | Domain-driven, microservices apps | Very High        | High       |
+| `MODEL_CUSTOM`| Custom legacy or advanced architectures|	Custom |Variable    |
 
-> 💡 **Note:** You can switch models at any time by changing `FoldersStructureModel` in `RepoGen.json` and regenerating structure using:
+> 💡 **Note:** If you're switching from one structure model to another, manually delete any previously generated folders to avoid conflicts,
+ then run the structure setup command again.
 ```bash
-dotnet tool run DEFC.Util.RepoGen set --structure -f
+dotnet tool run DEFC.Util.RepoGen set --structure
 ```
-> 🔄 **Tip:** You can change the structure model at any time, but it's best to apply it before generating repositories.
-
 
 ## 🏁 Usage Guide
 #### Step 1 – Configuration
  Customize the 'RepoGen.json' file with your specific data and save the changes.
 #### Step 2 – Initialize
-- To initialize the tool:
+
+- Initialize the RepoGen tool
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial
 ```
-- To inforce re-initialize the tool:
+- Force re-initialize the tool (overwrites existing files):
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial -f
 ```
 #### Step 3 – Structure Setup
-- To set up the repository pattern folder structure:
+- Generate the repository pattern folder structure:
 ```bash
 dotnet tool run DEFC.Util.RepoGen set --structure
 ```
 #### Step 4 – Explore and utilize tool commands as needed
 
-- To inforce change set up the repository pattern folder structure:
-```bash
-dotnet tool run DEFC.Util.RepoGen set --structure -f
-```
-
-- To test the database connection:
+- Test the database connection using the connection string in RepoGen.json:
 ```bash
 dotnet tool run DEFC.Util.RepoGen test --db-connection
 ```
-- To add the unit of work only (If not already exists):
+- Add a Unit of Work class (if not already added):
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --uow
 ```
-- To add the generic crud repository only:
+- Add a generic CRUD repository:
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --crud
 ```
-- To inforce replace the generic crud repository only:
+- Force replace the existing CRUD repository:
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --crud -f
 ```
-- To add a new repository with unit of work (if not exists):
+- Add a new repository with unit of work (if not exists):
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --repo REPO_NAME
 ```
-- To add a batch file sample:
+- Add a batch file sample:
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --batch FILE_NAME_WITHOUT_EXTENSION
 ```
-- To map an stored procedure to a stored procedure:
+- Map a stored procedure to a stored procedure:
 ```bash
 dotnet tool run DEFC.Util.RepoGen map --repo REPO_NAME --sp STORED_PROCEDURE_NAME
 ```
-- To remap an stored procedure to a stored procedure:
+- Remap a stored procedure to a stored procedure:
 ```bash
 dotnet tool run DEFC.Util.RepoGen re-map --repo REPO_NAME --sp STORED_PROCEDURE_NAME
 ```
-- To remove a mapped stored procedure:
+- Remove a mapped stored procedure:
 ```bash
 dotnet tool run DEFC.Util.RepoGen remove --repo REPO_NAME --sp STORED_PROCEDURE_NAME
 ```
-- To CRUD a table:
+- Generate CRUD a table:
 ```bash
 dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME
 ```
-- To inforce CRUD a table:
+- Force regenerate CRUD a table:
 ```bash
 dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME -f
 ```
-- To run batch of commends from json file:
+- Run batch of commends from json file:
 ```bash
 dotnet tool run DEFC.Util.RepoGen batch --file FILE_NAME
 ```

@@ -251,10 +251,9 @@ dotnet tool run DEFC.Util.RepoGen set --structure
 ```
 
 ## 🏁 Usage Guide
-#### Step 1 – Configuration
+### 📁 1. Configuration
  Customize the 'RepoGen.json' file with your specific data and save the changes.
-#### Step 2 – Initialize
-
+### 📁 2. Initialization
 - Initialize the RepoGen tool
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial
@@ -263,17 +262,17 @@ dotnet tool run DEFC.Util.RepoGen initial
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial -f
 ```
-#### Step 3 – Structure Setup
+### 🗂️ 3. Structure Setup
 - Generate the repository pattern folder structure:
 ```bash
 dotnet tool run DEFC.Util.RepoGen set --structure
 ```
-#### Step 4 – Explore and utilize tool commands as needed
-
+### 🧪 4. Testing 
 - Test the database connection using the connection string in RepoGen.json:
 ```bash
 dotnet tool run DEFC.Util.RepoGen test --db-connection
 ```
+### 🧱 5. Repository and Unit of Work Generation
 - Add a Unit of Work class (if not already added):
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --uow
@@ -290,10 +289,7 @@ dotnet tool run DEFC.Util.RepoGen add --crud -f
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --repo REPO_NAME
 ```
-- Add a batch file sample:
-```bash
-dotnet tool run DEFC.Util.RepoGen add --batch FILE_NAME_WITHOUT_EXTENSION
-```
+### 🔁 6. Stored Procedure Mapping
 - Map a stored procedure to a stored procedure:
 ```bash
 dotnet tool run DEFC.Util.RepoGen map --repo REPO_NAME --sp STORED_PROCEDURE_NAME
@@ -306,6 +302,7 @@ dotnet tool run DEFC.Util.RepoGen re-map --repo REPO_NAME --sp STORED_PROCEDURE_
 ```bash
 dotnet tool run DEFC.Util.RepoGen remove --repo REPO_NAME --sp STORED_PROCEDURE_NAME
 ```
+### 🧬 7. CRUD from Table
 - Generate CRUD a table:
 ```bash
 dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME
@@ -313,6 +310,11 @@ dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME
 - Force regenerate CRUD a table:
 ```bash
 dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME -f
+```
+### 📄 8. Batch Operations
+- Add a batch file sample:
+```bash
+dotnet tool run DEFC.Util.RepoGen add --batch FILE_NAME_WITHOUT_EXTENSION
 ```
 - Run batch of commends from json file:
 ```bash

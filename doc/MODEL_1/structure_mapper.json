@@ -1,0 +1,11 @@
+{
+  "RequiredMappings": {
+    "DbContext": "DbContext",
+    "DTOs": "DTOs",
+    "IRepositories": "IRepositories",
+    "Models": "Models",
+    "Repositories": "Repositories",
+    "Services": "Services",
+    "UnitOfWork": "UnitOfWork"
+  }
+}

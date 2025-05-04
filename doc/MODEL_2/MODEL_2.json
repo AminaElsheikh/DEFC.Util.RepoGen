@@ -1,0 +1,39 @@
+{
+  "Structure": [
+    {
+      "Name": "Controllers"
+    },
+    {
+      "Name": "Core",
+      "Children": [
+        { "Name": "Entities" },
+        { "Name": "Interfaces" }
+      ]
+    },
+    {
+      "Name": "Infrastructure",
+      "Children": [
+        { "Name": "Repositories" },
+        { "Name": "Data" },
+        { "Name": "UnitOfWork" }
+      ]
+    },
+    {
+      "Name": "Application",
+      "Children": [
+        { "Name": "Services" },
+        { "Name": "DTOs" }
+      ]
+    },
+    {
+      "Name": "Web",
+      "Children": [
+        { "Name": "Mappings" },
+        { "Name": "Filters" }
+      ]
+    },
+    {
+      "Name": "Common"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "Structure": [
+    {
+      "Name": "Controllers"
+    },
+    {
+      "Name": "Application",
+      "Children": [
+        {
+          "Name": "UseCases"
+        },
+        {
+          "Name": "DTOs"
+        },
+        {
+          "Name": "Interfaces"
+        }
+      ]
+    },
+    {
+      "Name": "Adapters",
+      "Children": [
+        {
+          "Name": "Repositories"
+        },
+        {
+          "Name": "Services"
+        },
+        {
+          "Name": "Database"
+        }
+      ]
+    },
+    {
+      "Name": "Web",
+      "Children": [
+        {
+          "Name": "Mappings"
+        },
+        {
+          "Name": "Filters"
+        }
+      ]
+    }
+  ]
+}

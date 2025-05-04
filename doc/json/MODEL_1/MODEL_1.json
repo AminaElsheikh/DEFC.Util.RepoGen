@@ -1,0 +1,26 @@
+{
+  "Structure": [
+
+    {
+      "Name": "DbContext"
+    },
+    {
+      "Name": "DTOs"
+    },
+    {
+      "Name": "IRepositories"
+    },
+    {
+      "Name": "Models"
+    },
+    {
+      "Name": "Repositories"
+    },
+    {
+      "Name": "Services"
+    },
+    {
+      "Name": "UnitOfWork"
+    }
+  ]
+}

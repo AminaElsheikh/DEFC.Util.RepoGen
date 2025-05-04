@@ -41,6 +41,14 @@
           "Name": "Filters"
         }
       ]
+    },
+    {
+      "Name": "Domain",
+      "Children": [
+        {
+          "Name": "Entities"
+        }
+      ]
     }
   ]
 }

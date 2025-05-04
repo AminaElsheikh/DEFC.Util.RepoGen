@@ -27,7 +27,12 @@
           "Name": "Services"
         },
         {
-          "Name": "Database"
+          "Name": "Database",
+          "Children": [
+            {
+              "Name": "UnitOfWork"
+            } 
+          ]
         }
       ]
     },

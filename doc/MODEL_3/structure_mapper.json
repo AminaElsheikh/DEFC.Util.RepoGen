@@ -8,6 +8,6 @@
     "Models": "Entities",
     "Repositories": "Repositories",
     "Services": "Services",
-    "UnitOfWork": "UnitOfWork">>
+    "UnitOfWork": "UnitOfWork"
   }
 }

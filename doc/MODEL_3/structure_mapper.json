@@ -5,7 +5,7 @@
     "DbContext": "Database",
     "DTOs": "DTOs",
     "IRepositories": "Interfaces",
-    "Models": "Models",>>>
+    "Models": "Entities",
     "Repositories": "Repositories",
     "Services": "Services",
     "UnitOfWork": "UnitOfWork">>

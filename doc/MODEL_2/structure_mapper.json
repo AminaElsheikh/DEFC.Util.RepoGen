@@ -1,0 +1,13 @@
+{
+//RequiredMappings define the logical folders your application MUST include.
+//Each key is a logical role (like 'DTOs'), and the value is the name of the replaced folder.
+  "RequiredMappings": {
+    "DbContext": "Data",
+    "DTOs": "DTOs",
+    "IRepositories": "Interfaces",
+    "Models": "Entities",
+    "Repositories": "Repositories",
+    "Services": "Services",
+    "UnitOfWork": "UnitOfWork"
+  }
+}

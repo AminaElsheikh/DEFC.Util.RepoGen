@@ -27,12 +27,10 @@
           "Name": "Services"
         },
         {
-          "Name": "Database",
-          "Children": [
-            {
-              "Name": "UnitOfWork"
-            } 
-          ]
+          "Name": "Database"
+        },
+        {
+          "Name": "UnitOfWork" 
         }
       ]
     },

@@ -53,7 +53,10 @@ Make sure the following are installed:
 
 ### ✅ Step 1: Create the Database
 - Open SQL Server Management Studio (SSMS) or any SQL client.
-- Run the script from (/DB/SampleStore.sql)
+- Run the script:
+```bash
+	/DB/SampleStore.sql
+```
 - This creates tables like `Products`, `ProductCategories`, `Orders`, `Customers` and a few stored procedures.
 ### ✅ Step 2: Open the API Project
 - Open the `SampleStore` solution in Visual Studio.
@@ -67,3 +70,16 @@ Make sure the following are installed:
 dotnet tool run DEFC.Util.RepoGen initial
 ```
 ### ✅ Step 4: Review the Configuration
+- Open the file:
+
+```bash 
+SampleStore/RepoGenTool/RepoGen.json
+```
+- Confirm it contains the correct:
+	- Connection string to SampleStore DB
+	- Namespace (e.g., SampleStore)
+	- Folder structure model (e.g., MODEL_2)
+
+### ✅ Step 5: Set-up app folder structure
+
+

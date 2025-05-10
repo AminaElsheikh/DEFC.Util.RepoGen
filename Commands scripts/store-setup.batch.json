@@ -1,1 +1,71 @@
 
+{
+  "Commands": [
+    {
+      "ID": "init-structure",
+      "command": "structure",
+      "args": ["set"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "test-db",
+      "command": "test",
+      "args": ["db-connection"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "add-uow",
+      "command": "add",
+      "args": ["--uow"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "add-products-repo",
+      "command": "add",
+      "args": ["--repo", "Products"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "map-insert-product",
+      "command": "map",
+      "args": ["--sp", "sp_InsertProduct", "--repo", "Products"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "map-update-product",
+      "command": "map",
+      "args": ["--sp", "sp_UpdateProduct", "--repo", "Products"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "map-delete-product",
+      "command": "map",
+      "args": ["--sp", "sp_DeleteProduct", "--repo", "Products"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "map-get-products",
+      "command": "map",
+      "args": ["--sp", "sp_GetProducts", "--repo", "Products"],
+      "Retries": 1,
+      "RetryDelay": 300
+    },
+    {
+      "ID": "crud-product-categories",
+      "command": "crud",
+      "args": [
+        "--tbl", "ProductCategories",
+        "--service", "ProductCategoriesService"
+      ],
+      "Retries": 1,
+      "RetryDelay": 300
+    }
+  ]
+}

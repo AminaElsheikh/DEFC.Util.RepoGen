@@ -5,12 +5,11 @@ This task will introduce you to the powerful `.NET CLI` tool
 [**DEFC.Util.RepoGen**](https://www.nuget.org/packages/DEFC.Util.RepoGen), 
 which automates repository and Unit of Work generation using **SQL Server stored procedures**.
 
-[ ............. README LINK HERE]
-
+ [See RepoGen tool] (https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md)
 ---
 
 ## 🧩 Scenario Title
-“Kickstart the Store API with DEFC.Util.RepoGen”
+`Kickstart the Store API with DEFC.Util.RepoGen`
 
 ## 📘 Scenario
 You’ve joined the backend team of an online platform called **SampleStore**.  

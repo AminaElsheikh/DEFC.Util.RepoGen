@@ -5,7 +5,7 @@ This task will introduce you to the powerful `.NET CLI` tool
 [**DEFC.Util.RepoGen**](https://www.nuget.org/packages/DEFC.Util.RepoGen), 
 which automates repository and Unit of Work generation using **SQL Server stored procedures**.
 
- [See RepoGen tool] (https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md)
+ [See RepoGen tool](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md)
 
 ---
 
@@ -40,7 +40,8 @@ You'll generate the necessary code structure without writing boilerplate reposit
 
 ## 🛠️ Prerequisites
 
-[ ............. README LINK HERE Prerequisites SECTION]
+[See RepoGen Prerequisites](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-prerequisites)
+
 Make sure the following are installed:
 
 -  [.NET 6 SDK or newer](https://dotnet.microsoft.com/download)
@@ -77,15 +78,14 @@ dotnet tool run DEFC.Util.RepoGen initial
 ```
 ### ✅ Step 4: Review the Configuration
 - Open the file:
-[ ............. README LINK HERE Configuration SECTION]
-
+[See RepoGen Configuration](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-repogenjson--tool-configuration)
 ```bash 
 SampleStore/RepoGenTool/RepoGen.json
 ```
 - Confirm it contains the correct:
-	- Connection string to SampleStore DB[ ............. README LINK HERE connection SECTION]
+	- Connection string to SampleStore DB 
 	- Namespace (e.g., SampleStore)
-	- Folder structure model (e.g., MODEL_1)[ ............. README LINK HERE model SECTION]
+	- Folder structure model (e.g., MODEL_1) [See RepoGen Supported models](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-folder-structure-models)
 
 ### ✅ Step 5: Set-up app folder structure
 

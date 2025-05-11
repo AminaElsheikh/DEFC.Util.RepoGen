@@ -3,9 +3,7 @@
 Welcome to the **SampleStore** onboarding project!  
 This task will introduce you to the powerful `.NET CLI` tool 
 [**DEFC.Util.RepoGen**](https://www.nuget.org/packages/DEFC.Util.RepoGen), 
-which automates repository and Unit of Work generation using **SQL Server stored procedures**.
-
- [See RepoGen tool](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md)
+which automates repository and Unit of Work generation using **SQL Server stored procedures** [See RepoGen tool](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md).
 
 ---
 
@@ -40,7 +38,7 @@ You'll generate the necessary code structure without writing boilerplate reposit
 
 ## 🛠️ Prerequisites
 
-[See RepoGen Prerequisites](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-prerequisites)
+[See RepoGen Prerequisites](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#%EF%B8%8F-prerequisites)
 
 Make sure the following are installed:
 
@@ -240,7 +238,7 @@ builder.Services.AddDbContext<StoreDBContext>(options =>
 - Link them to unit of work class
 - Uncomment code inside ProductsController (for faster test)
 ```C#
- [ApiController]
+    [ApiController]
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
@@ -277,7 +275,7 @@ Once you complete the main task, try redoing it using a different folder structu
 This helps you better understand clean architecture strategies and how `DEFC.Util.RepoGen` adapts to different setups.
 
 ---
-ممكن نخلى هنا ال remove و ال remap
+
 ### 🧱 Challenge: Use `MODEL_2` (Layered Architecture)
 
 1. Delete previously generated folders (to avoid conflicts):

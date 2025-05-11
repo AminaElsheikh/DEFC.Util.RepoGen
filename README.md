@@ -6,6 +6,7 @@ This task will introduce you to the powerful `.NET CLI` tool
 which automates repository and Unit of Work generation using **SQL Server stored procedures**.
 
  [See RepoGen tool] (https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md)
+
 ---
 
 ## 🧩 Scenario Title

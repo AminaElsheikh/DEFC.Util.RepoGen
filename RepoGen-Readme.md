@@ -478,7 +478,7 @@ By using this software, you agree to the [Elastic License 2.0](https://www.elast
 ## 📞 Contact
 If you have any questions, feedback, or need support, feel free to reach out:
 
-- **GitHub**: [@AminaElSheikh](https://github.com/AminaElSheikh)
+- **GitHub**: [AminaElSheikh](https://github.com/AminaElSheikh)
 - **LinkedIn**: [Amina El-Sheikh](https://www.linkedin.com/in/amina-el-sheikh-05254884/)
 ## 🐞 Issues
 If you encounter any bugs, have suggestions for new features, or need assistance with the tool, please open an issue in the GitHub repository.

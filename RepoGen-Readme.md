@@ -78,6 +78,7 @@ You can run the tool using any of the following:
 
 > 💡 **Important:** For best experience and readability, use **Developer PowerShell**.
 
+
 ## 🛠️ Prerequisites
 - Install the following NuGet packages:
   - `Microsoft.Data.SqlClient`

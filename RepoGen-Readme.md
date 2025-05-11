@@ -19,7 +19,7 @@ Server stored procedures, to accelerate clean architecture development.
 - [📝 License](#-license)
 - [📞 Contact](#-contact)
 - [🐞 Issues](#-issues)
-- [📦 Other Nugets](#other-nugets)
+- [📦 Other Nugets](#-other-nugets)
 - [💖 Donation](#-donation)
 
 ## ℹ️ About

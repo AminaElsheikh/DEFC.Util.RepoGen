@@ -4,7 +4,7 @@ Server stored procedures, to accelerate clean architecture development.
 
 ## Table of Contents
 
-- [ℹ️ About](#️-about-repogen)
+- [ℹ️ About](#-about)
 - [🎯 Objective](#-objective)
 - [🚀 Benefits](#-benefits)
 - [🔌 Supported Technologies](#-supported-technologies)
@@ -21,7 +21,7 @@ Server stored procedures, to accelerate clean architecture development.
 - [🐞 Issues](#-issues)
 - [📦 Other Nugets](#-other-nugets)
  
-## ℹ️ About RepoGen
+## ℹ️ About
 **DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate repositories and Unit of Work classes that map to SQL Server stored procedures. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a clean architecture within .NET applications.
 
 This tool empowers development teams to enforce consistent patterns, improve productivity, and accelerate the creation of scalable applications that interact with databases via stored procedures.

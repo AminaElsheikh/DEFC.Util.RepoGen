@@ -70,6 +70,7 @@ SampleStore/RepoGenTool/RepoGen.json
 ```
 - Confirm it contains the correct:
 	- Connection string to SampleStore DB 
+	- DBContextName (e.g., Store)
 	- Namespace (e.g., SampleStore)
 	- Folder structure model (e.g., MODEL_1) [See RepoGen Supported models](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-folder-structure-models)
 
@@ -78,6 +79,23 @@ SampleStore/RepoGenTool/RepoGen.json
 ```bash
 dotnet tool run DEFC.Util.RepoGen structure set
 ```
+#### ⚠️ Important Notes
+- Make sure no extra spaces in the commands
+
+- To confirm if the connection string in `RepoGen.json` is working:
+```bash
+dotnet tool run DEFC.Util.RepoGen test db-connection
+```
+- When need to remove any of mapped stored ptocedures you can use `remove` command as below:
+```bash 
+dotnet tool run DEFC.Util.RepoGen remove --sp sp_DeleteProduct --repo Products
+```
+
+- When need to re-map any of mapped stored ptocedures you can use `re-map` command as below:
+```bash 
+dotnet tool run DEFC.Util.RepoGen re-map --sp sp_DeleteProduct --repo Products
+```
+
 ### ✅ Step 6: For ProductCategories table will use CRUD option
 - use `crud` command with table `ProductCategories`: 
 ```bash
@@ -187,12 +205,12 @@ dotnet tool run DEFC.Util.RepoGen batch --file batch-orderitems
 ``` 
 This will: 
 - Create OrderItems reposatory
-- Map stored procedures for OrderItems
-### ✅ Explore the Generated Code & Add you required logics and validartions
+- Map stored procedures for OrderItems written in `batch-orderitems.json`
+### ✅ Explore the Generated Code & Add required logics and validations
 Look inside the following folders:
 
 - Repositories
-- Interfaces
+- Interfaces (IRepositories)
 - Services
 - DTOs
 - Find the auto-generated ProductsRepository, UnitOfWork, etc.
@@ -221,7 +239,7 @@ builder.Services.AddDbContext<StoreDBContext>(options =>
 ```
 - Add any other configurations needed
 
-## ✅ Step 10: Wire It to the API
+## ✅ Step 11: Wire It to the API
 - Create a basic controllers called `Products`,`Customers` and `Orders`, etc
 - Link them to unit of work class
 - Uncomment code inside ProductsController (for faster test)
@@ -237,23 +255,6 @@ builder.Services.AddDbContext<StoreDBContext>(options =>
         }
         .........
     }
-```
----
-### Important Notes
-- Make sure no extra spaces in the commands
-
--  Test the database connection using in `RepoGen.json` before using tool commands as below:
-```bash
-dotnet tool run DEFC.Util.RepoGen test db-connection
-```
-- When need to move any of mapped stored ptocedures you can use `remove` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen remove --sp sp_DeleteProduct --repo Products
-```
-
-- When need to re-map any of mapped stored ptocedures you can use `re-map` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen re-map --sp sp_DeleteProduct --repo Products
 ```
 ---
 

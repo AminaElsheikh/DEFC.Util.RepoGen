@@ -17,20 +17,7 @@ Your goal is to set up the data access layer using `DEFC.Util.RepoGen`, based on
 - A sample SQL Server database (`SampleStore.sql`) that creates the store database with tables like 
   `Products`, `ProductCategories`, `Orders`, `Customers`,`OrderItems` and stored procedures.
 - A .NET Core API skeleton project (`SampleStore`)
-- A RepoGen commands to follow (`SampleStore-commands.txt`)
-- A RepoGen batch file (`store-setup-batch.json`) to auto-generate repositories, services and 
-  doing oprations such as[map, remove and remap stored procedures beside CRUD tables]
 You'll generate the necessary code structure without writing boilerplate repositories or services manually!
-
----
-
-## 📦 Files Provided
-
-| File/Folder                  | Description                                         |
-|-----------------------------|-----------------------------------------------------|
-| `SampleStore.sql`           | SQL script to create and seed the database          |
-| `Store/`                    | .NET Core 6+ API project skeleton                   |  
-| `SampleStore-commands.txt`              | A RepoGen commands to follow   |
 
 ---
 
@@ -40,15 +27,15 @@ You'll generate the necessary code structure without writing boilerplate reposit
 
 Make sure the following are installed:
 
--  [.NET 6 SDK or newer](https://dotnet.microsoft.com/download)
--  SQL Server
-- `Microsoft.Data.SqlClient`
-- `Microsoft.EntityFrameworkCore.SqlServer`
-- `Microsoft.EntityFrameworkCore`
-- `DEFC.Util.RepoGen` installed globally or locally:
-  ```bash
-  dotnet add package DEFC.Util.RepoGen --version 1.0.0
-  ```
+- SQL Server
+- [.NET 6 SDK or newer](https://dotnet.microsoft.com/download)
+    - `Microsoft.Data.SqlClient`
+    - `Microsoft.EntityFrameworkCore.SqlServer`
+    - `Microsoft.EntityFrameworkCore`
+    - `DEFC.Util.RepoGen` installed globally or locally:
+      ```bash
+      dotnet add package DEFC.Util.RepoGen --version 1.0.0
+      ```
 
 ---
 

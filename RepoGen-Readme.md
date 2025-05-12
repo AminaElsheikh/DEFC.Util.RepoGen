@@ -115,7 +115,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
     "DBConfig": {
       "SchemaID": "1", // OPTIONAL: Database schema ID (if applicable)
       "DBContextName": "App", // REQUIRED: Base name for DbContext (suffix "DBContext" will be added automatically)
-      "ConnectionString": "Server=.;Database=ProductsDB;User Id=TaxUser;Password=500700;TrustServerCertificate=True"
+       "ConnectionString": "Server=SERVER_NAME;Database=DATABASE_NAME;User Id=USER_NAME;Password=PASSWORD;TrustServerCertificate=True"
       // REQUIRED: Valid connection string to your database
     },
     "AppConfig": {

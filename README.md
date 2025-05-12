@@ -55,18 +55,16 @@ Make sure the following are installed:
 dotnet tool run DEFC.Util.RepoGen initial
 ```
 ### ✅ Step 4: Review the Configuration
-- Open the file:
+
 [See RepoGen Configuration](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-repogenjson--tool-configuration)
-```bash 
-SampleStore/RepoGenTool/RepoGen.json
-```
- #### RepoGen Configuration Checklist
+
+#### 🔧 RepoGen Configuration Checklist
 
 Please verify and update the following in the file:
 
 **Path:** `SampleStore/RepoGenTool/RepoGen.json`
 
-#### Required Configuration Fields
+#### 🔧 Required Configuration Fields
 
 | Field                    | Status     | Description                                                                                   | Example Value            |
 |-------------------------|------------|-----------------------------------------------------------------------------------------------|--------------------------|
@@ -77,7 +75,7 @@ Please verify and update the following in the file:
 
 > ℹ️ **Note:** Other folder models include `MODEL_2`, `MODEL_3`, and `MODEL_CUSTOM`.
 
-#### Example `RepoGen.json`
+#### 📁 Example `RepoGen.json`
 
 ```json
 {
@@ -316,6 +314,7 @@ This helps you better understand clean architecture strategies and how `DEFC.Uti
 > 🔁 You can also try `MODEL_3` (Hexagonal) or define your own using `MODEL_CUSTOM`.
 
 ---
+
 
 ## 🎯 Learning Objectives
 By completing this task, you will:

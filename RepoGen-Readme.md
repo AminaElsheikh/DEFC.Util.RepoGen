@@ -21,7 +21,6 @@ Server stored procedures, to accelerate clean architecture development.
 - [🐞 Issues](#-issues)
 - [📦 Other Nugets](#-other-nugets)
 
-
 ## ℹ️ About
 **DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate repositories and Unit of Work classes that map to SQL Server stored procedures. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a clean architecture within .NET applications.
 
@@ -506,10 +505,13 @@ We welcome contributions and feedback to improve the tool!
 ## 📦 Other Nugets
 ### DEFC.Util.DataValidation
 - For using: [Nuget](https://www.nuget.org/packages/DEFC.Util.DataValidation)
+- [GitHub Sample](https://github.com/AminaElsheikh/DEFC.Util.DataValidationExamples)
 - Read: [Dev.to](https://dev.to/aminaelsheikh/data-validation-nuget-package-kco)
 ### DEFC.Util.Generator
 - For using: [Nuget](https://www.nuget.org/packages/DEFC.Util.Generator)
+- [GitHub Sample](https://github.com/AminaElsheikh/DEFC.Util.GeneratorExamples)
 - Read: [Dev.to](https://dev.to/aminaelsheikh/data-generator-nuget-package-1fij)
+
 
 Your support is greatly appreciated and helps keep this project active and maintained! 🙏
 

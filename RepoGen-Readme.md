@@ -18,7 +18,7 @@ Server stored procedures, to accelerate clean architecture development.
 8. [📁 Folder Structure Models](#-folder-structure-models)
    - [🧱 `MODEL_1` – Default (Clean Architecture Inspired)](#-model_1--default-clean-architecture-inspired)
    - [🧱 `MODEL_2` – Layered Architecture](#-model_2--layered-architecture)
-   - [🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)](#️-model_3--hexagonal-architecture-ports-adapters)
+   - [🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)](#-model_3--hexagonal-architecture-ports-adapters)
    - [🧱 `MODEL_CUSTOM` – Custom User-Defined Structure](#-model_custom--custom-user-defined-structure)
 9. [🏁 Usage Guide](#-usage-guide)
    - [📁 1. Initialization](#-1-initialization)

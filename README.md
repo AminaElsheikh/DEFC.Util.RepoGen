@@ -157,7 +157,9 @@ dotnet tool run DEFC.Util.RepoGen map --sp sp_DeleteOrder --repo Orders
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --batch batch-orderitems
 ```
-- this will generate json file with sample nodes like below:
+- Generated file location **Path:** `SampleStore/RepoGenTool/Batches/batch-orderitems.json`
+- The generated file will include **sample nodes** like below:
+
 ```json
 {
   "Commands": [

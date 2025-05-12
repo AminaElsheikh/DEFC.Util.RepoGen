@@ -43,13 +43,13 @@ Make sure the following are installed:
 
 ### ✅ Step 1: Create the Database
 - Open SQL Server Management Studio (SSMS) or any SQL client.
-- Run the script:
+- [Run the script](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/tree/main/DB):
 ```bash
 	/DB/SampleStore.sql
 ```
 - This creates tables like `Products`, `ProductCategories`, `Orders`, `Customers`, `OrderItems` and a few stored procedures.
 ### ✅ Step 2: Open the API Project
-- Open the `SampleStore` solution in Visual Studio.
+- Open the [`SampleStore`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/tree/main/SampleStore) solution in Visual Studio.
 ```bash
 	/SampleStore
 ```

@@ -75,7 +75,7 @@ You can run the tool using any of the following:
 - **.NET CLI** from terminal or command prompt *(recommended)* — provides better visualization and output formatting.
 - **Package Manager Console** in Visual Studio.
 
-> 💡 **Important:** For best experience and readability, use **Developer PowerShell**.
+> 💡 **Important:** For best experience and readability, use **Developer PowerShell** or **.NET CLI**.
 
 
 ## 🛠️ Prerequisites
@@ -303,7 +303,7 @@ dotnet tool run DEFC.Util.RepoGen initial -f
 dotnet tool run DEFC.Util.RepoGen structure set
 ```
 ### 🧪 4. Testing 
-- Test the database connection using the connection string in RepoGen.json:
+- To confirm if the connection string in `RepoGen.json` is working:
 ```bash
 dotnet tool run DEFC.Util.RepoGen test db-connection
 ```

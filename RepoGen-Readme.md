@@ -29,7 +29,7 @@ Server stored procedures, to accelerate clean architecture development.
    - [🔁 6. Stored Procedure Mapping](#-6-stored-procedure-mapping)
    - [🧬 7. CRUD](#-7-crud)
    - [📄 8. Batch Operations](#-8-batch-operations)
-10. [🐞 Troubleshooting & Error Handling](#️-troubleshooting-error-handling)
+10. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
 11. [🔔 Important Notes](#-important-notes)
 12. [💡 Example Usage](#-example-usage)
 13. [📝 License](#-license)

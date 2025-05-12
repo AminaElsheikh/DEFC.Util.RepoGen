@@ -18,7 +18,7 @@ which automates repository and Unit of Work generation using **SQL Server stored
    - [✅ Step 6: Use CRUD option for ProductCategories](#-step-6-for-productcategories-table-will-use-crud-option)
    - [✅ Step 7: Use Map option for Products, Orders, Customers](#-step-7-for-products-orders-customers-tables-will-use-map-option)
    - [✅ Step 8: Use Batch option for OrderItems](#-step-8-for-orderitems-table-will-use-batch-option)
-   - [✅ Step 9: Explore the Generated Code](#-explore-the-generated-code--add-required-logics-and-validations)
+   - [✅ Step 9: Explore the Generated Code](#-step-9-explore-the-generated-code--add-required-logics-and-validations)
    - [✅ Step 10: Configure your application](#-step-10-configure-your-application)
    - [✅ Step 11: Wire It to the API](#-step-11-wire-it-to-the-api)
 5. [📚 For More Tool Training](#-for-more-tool-training)
@@ -253,7 +253,7 @@ dotnet tool run DEFC.Util.RepoGen batch --file batch-orderitems
 - This will: 
     - Create OrderItems reposatory.
     - Map stored procedures for OrderItems written in `batch-orderitems.json`.
-### ✅ Explore the Generated Code & Add required logics and validations
+## Step 9:✅ Explore the Generated Code & Add required logics and validations
 Look inside the following folders:
 
 - Repositories

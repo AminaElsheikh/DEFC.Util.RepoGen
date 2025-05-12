@@ -392,8 +392,12 @@ By completing this task, you will:
 - Map, Re-map and Remove stored procedures to strongly typed repository methods.
 - CRUD tables to strongly typed services methods.
 
+---
+
 ## 📩 Questions?
 If you’re stuck or want feedback on your solution: Open a [GitHub Issue](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/issues) with your question
+
+---
 
 ### 🎯 Learning Outcome
 - Understand how layered architecture separates **application**, **domain**, and **infrastructure** logic.

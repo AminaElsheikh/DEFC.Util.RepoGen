@@ -1,220 +1,368 @@
-# 🏁 Training Task Scenario – SampleStore API
+# DEFC.Util.RepoGen
+A powerful .NET CLI tool and NuGet package that automates the generation of repositories and unit of work patterns around SQL 
+Server stored procedures, to accelerate clean architecture development.
 
-Welcome to the **SampleStore** onboarding project!  
-This task will introduce you to the powerful `.NET CLI` tool 
-[**DEFC.Util.RepoGen**](https://www.nuget.org/packages/DEFC.Util.RepoGen), 
-which automates repository and Unit of Work generation using **SQL Server stored procedures** [See RepoGen tool](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md).
-# 📑 Table of Contents
+## Table of Contents
 
-1. [🧩 Scenario Title](#-scenario-title)
-2. [📘 Scenario](#-scenario)
-3. [🛠️ Prerequisites](#️-prerequisites)
-4. [🚀 Steps to Complete the Task](#-steps-to-complete-the-task)
-   - [✅ Step 1: Create the Database](#-step-1-create-the-database)
-   - [✅ Step 2: Open the API Project](#-step-2-open-the-api-project)
-   - [✅ Step 3: Initialize the RepoGen tool](#-step-3-initialize-the-repogen-tool)
-   - [✅ Step 4: Review the Configuration](#-step-4-review-the-configuration)
-   - [✅ Step 5: Set-up app folder structure](#-step-5-set-up-app-folder-structure)
-   - [✅ Step 6: Use CRUD option for ProductCategories](#-step-6-for-productcategories-table-will-use-crud-option)
-   - [✅ Step 7: Use Map option for Products, Orders, Customers](#-step-7-for-products-orders-customers-tables-will-use-map-option)
-   - [✅ Step 8: Use Batch option for OrderItems](#-step-8-for-orderitems-table-will-use-batch-option)
-   - [✅ Step 9: Explore the Generated Code](#-explore-the-generated-code--add-required-logics-and-validations)
-   - [✅ Step 10: Configure your application](#-step-10-configure-your-application)
-   - [✅ Step 11: Wire It to the API](#-step-11-wire-it-to-the-api)
-5. [📚 For More Tool Training](#-for-more-tool-training)
-6. [🧱 Challenges](#-challenges)
-   - [Challenge 1: Remap Stored Procedure](#-challenge-1-remap-stored-procedure)
-   - [Challenge 2: Remove Stored Procedure](#-challenge-2-remove-stored-procedure)
-   - [Challenge 3: Force Overwrite Using --force or -f](#-challenge-3-force-overwrite-using---force-or--f)
-   - [Challenge 4: Change Structure Model](#-challenge-4-change-structure-model)
-7. [🎯 Learning Objectives](#-learning-objectives)
-8. [📩 Questions?](#-questions)
-9. [🎯 Learning Outcome](#-learning-outcome)
+- [ℹ️ About](#-about)
+- [🎯 Objective](#-objective)
+- [🚀 Benefits](#-benefits)
+- [🔌 Supported Technologies](#-supported-technologies)
+- [🛠️ Prerequisites](#️-prerequisites)
+- [📦 Installation](#-installation)
+- [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
+- [📁 Folder Structure Models](#-folder-structure-models)
+- [🏁 Usage Guide](#-usage-guide)
+- [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
+- [🔔 Important Notes](#-important-notes)
+- [💡 Example Usage](#-example-usage)
+- [📝 License](#-license)
+- [📞 Contact](#-contact)
+- [🐞 Issues](#-issues)
+- [📦 Other Nugets](#-other-nugets)
 
----
+## ℹ️ About
+**DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate repositories and Unit of Work classes that map to SQL Server stored procedures. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a clean architecture within .NET applications.
 
-## 🧩 Scenario Title
-`Kickstart the Store API with DEFC.Util.RepoGen`
+This tool empowers development teams to enforce consistent patterns, improve productivity, and accelerate the creation of scalable applications that interact with databases via stored procedures.
 
-## 📘 Scenario
-You’ve joined the backend team of an online platform called **SampleStore**.  
-Your goal is to set up the data access layer using `DEFC.Util.RepoGen`, based on:
+### Created by
+This tool was created by **Amina El-Sheikh**.
 
-- A sample SQL Server database (`SampleStore.sql`) that creates the store database with tables like 
-  `Products`, `ProductCategories`, `Orders`, `Customers`,`OrderItems` and stored procedures.
-- A .NET Core API skeleton project (`SampleStore`)
-You'll generate the necessary code structure without writing boilerplate repositories or services manually!
+## 🎯 Objective
+NuGet tool that implements the **repository** and **unit of work** patterns by automating the creation of repositories mapped to database **stored procedures (SPs)**. This enhances developer productivity and helps maintain clean architecture in .NET applications.
 
----
+## 🚀 Benefits
+- **Reduced Boilerplate**: Developers don't need to manually create the repository and methods for every stored procedure. The tool can automatically generate them.
+- **Enforces Clean Architecture**: The separation of concerns between database operations (in the repository) and business logic (in the service) is maintained.
+- **Promotes Maintainability**: When working with stored procedures, the tool keeps the codebase more organized and easier to maintain, as the SP logic is encapsulated in the repository.
+- **Speeds Up Development**: Instead of writing repetitive code, developers can focus more on writing business logic by using the generated repositories.
+ 
+## 🔌 Supported Technologies
+The tool is designed to work seamlessly within modern .NET environments using clean architecture principles.
+
+### 🗄️ Database Providers
+- Microsoft SQL Server *(current supported provider)*
+
+> ⚠️ **Important on Other Databases**
+> `DEFC.Util.RepoGen` does **not support PostgreSQL or MySQL** because:
+>
+> - These databases do not provide the same stored procedure metadata needed for automated mapping.
+> - Their procedural SQL dialects differ significantly from T-SQL (used in SQL Server).
+> - The tool is tightly coupled to SQL Server’s stored procedure introspection capabilities.
+>
+> ⚠️ **Important:** For PostgreSQL or MySQL, consider using EF Core’s model- or code-first patterns instead.
+
+### ⚙️ .NET Versions
+- ✅ .NET 6
+- ✅ .NET 7
+- ✅ .NET 8
+
+> 💡 **Important:** The tool is compatible with .NET SDK-based projects and uses `dotnet` CLI commands internally.
+
+### 🧱 Design Patterns Used
+- **Repository Pattern** – abstracts data access and encapsulates business logic interactions.
+- **Unit of Work** – coordinates the writing out of changes and maintains transactional integrity.
+- **Command Pattern** (CLI-based) – the tool is built around modular command-line operations.
+- **Separation of Concerns** – enforces clean boundaries between infrastructure and domain logic.
+
+> 💡 **Important:** The tool helps teams enforce these patterns consistently across the codebase, especially when working with stored procedures.
+
+### 🖥️ Recommended Execution Environments
+You can run the tool using any of the following:
+
+- **Developer PowerShell for Visual Studio** *(recommended)* — provides better visualization and output formatting.
+- **.NET CLI** from terminal or command prompt *(recommended)* — provides better visualization and output formatting.
+- **Package Manager Console** in Visual Studio.
+
+> 💡 **Important:** For best experience and readability, use **Developer PowerShell** or **.NET CLI**.
+
 
 ## 🛠️ Prerequisites
+- Install the following NuGet packages:
+  - `Microsoft.Data.SqlClient`
+  - `Microsoft.EntityFrameworkCore.SqlServer`
+  - `Microsoft.EntityFrameworkCore` 
 
-Make sure the following are installed:
-
-- SQL Server
-- [.NET 6 SDK or newer](https://dotnet.microsoft.com/download)
-    - `Microsoft.Data.SqlClient`
-    - `Microsoft.EntityFrameworkCore.SqlServer`
-    - `Microsoft.EntityFrameworkCore`
-    - `DEFC.Util.RepoGen`
-      ```bash
-      dotnet add package DEFC.Util.RepoGen --version 1.0.0
-      ```
-
----
-
-## 🚀 Steps to Complete the Task
-
-### ✅ Step 1: Create the Database
-- Open SQL Server Management Studio (SSMS) or any SQL client.
-- [Run the script](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/tree/main/DB)
-- This creates tables `Products`, `ProductCategories`, `Orders`, `Customers`, `OrderItems` and a few stored procedures.
-### ✅ Step 2: Open the API Project
-- Open the [`SampleStore`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/tree/main/SampleStore) solution in Visual Studio.
-- Review the structure — **do not manually add repositories or services**.
-### ✅ Step 3: Initialize the RepoGen tool
-- Open **Developer PowerShell for Visual Studio** *(recommended)* — provides better visualization and output formatting.
-    - (OR) **.NET CLI** from terminal or command prompt *(recommended)* — provides better visualization and output formatting.		
-    - (OR) **Package Manager Console** in Visual Studio.
-- Write the initialization command below
+## 📦 Installation
+Install the NuGet Package **DEFC.Util.RepoGen** with version **1.0.0** using the following command:
 ```bash
-dotnet tool run DEFC.Util.RepoGen initial
+dotnet add package DEFC.Util.RepoGen --version 1.0.0
 ```
-### ✅ Step 4: Review the Configuration
+## 🔧 RepoGen.json – Tool Configuration
 
-[See RepoGen Configuration](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-repogenjson--tool-configuration)
+The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util.RepoGen` tool. It allows you to customize key settings that define how the tool interacts with your database and structures the generated code.
 
-#### 🔧 RepoGen Configuration Checklist
+### Key Configuration Options:
+- **DBContextName**: The base name for your DBContext. The tool will automatically append "DBContext" to it.
+- **ConnectionString**: A valid connection string to your database.
+- **Namespace**: The application namespace used in the generated code.
+- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or `MODEL_CUSTOM` for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
+- **LoggerCode**: Controls logger generation for command and batch executions.
 
-Please verify and update the following in the file:
-
-**Path:** `SampleStore/RepoGenTool/RepoGen.json`
-
-#### 🔧 Required Configuration Fields
-
-| Field                    | Status     | Description                                                                                   | Example Value            |
-|-------------------------|------------|-----------------------------------------------------------------------------------------------|--------------------------|
-| `ConnectionString`      | ❌ Pending | Valid connection string to the SampleStore database                                           | `Server=localhost;Database=SampleStore;User Id=admin;Password=secret;TrustServerCertificate=True` |
-| `DBContextName`         | ❌ Pending | Base name for the `DbContext` (suffix `DBContext` will be added automatically)               | `Store`                  |
-| `Namespace`             | ❌ Pending | Root namespace to be used for generated code                                                  | `SampleStore`            |
-| `FoldersStructureModel` | ✅ Set      | Structure model used for organizing the generated codebase                                   | `MODEL_1`                |
-
-> ℹ️ **Note:** Other folder models include `MODEL_2`, `MODEL_3`, and `MODEL_CUSTOM`.
-
-#### 📁 Example `RepoGen.json`
-
+> 💡 **Important:** The tool automatically appends `DBContext`, `Repository`, and `Service` to the relevant names, so you don’t need to include those suffixes in your configuration.
 ```json
+
+//================================================================================
+// Notes:
+// - The word "DBContext" will be dynamically appended to the DBContextName.
+// - The word "Repository" will be dynamically appended to the Repository Name.
+// - The word "Service" will be dynamically appended to the Service Name.
+//================================================================================
+
 {
   "Config": {
     "DBConfig": {
-      "SchemaID": "1",
-      "DBContextName": "Store",
-      "ConnectionString": "Server=localhost;Database=SampleStore;User Id=admin;Password=secret;TrustServerCertificate=True"
+      "SchemaID": "1", // OPTIONAL: Database schema ID (if applicable)
+      "DBContextName": "YOUR_DBCONTEXTNAME_HERE", // REQUIRED: Base name for DbContext (suffix "DBContext" will be added automatically)
+       "ConnectionString": "Server=SERVER_NAME;Database=DATABASE_NAME;User Id=USER_NAME;Password=PASSWORD;TrustServerCertificate=True"
+      // REQUIRED: Valid connection string to your database
     },
     "AppConfig": {
-      "Namespace": "SampleStore",
-      "FoldersStructureModel": "MODEL_1",
-      "LoggerCode": "101"
+      "Namespace": "YOUR_NAMESPACE_HERE", // REQUIRED: Base namespace for generated code
+      "FoldersStructureModel": "MODEL_1", // REQUIRED: Folder structure
+      //   MODEL_1 (Default)
+      //   MODEL_2 (Layered)
+      //   MODEL_3 (Hexagonal/Ports & Adapters)
+      //   - MODEL_CUSTOM (Define your own folder structure to fit your specific project architecture)
+      "LoggerCode": "101" // REQUIRED: Logger file generation control
+      //   100: No logger
+      //   101: Logger for Command & Batch
+      //   102: Logger for Command only
+      //   103: Logger for Batch only
     }
   }
 }
 ```
-### ✅ Step 5: Set-up app folder structure
+### Dynamic Creation of `RepoGen.json`
+When you first initialize the tool with the following command:
 
+```bash
+dotnet tool run DEFC.Util.RepoGen initial
+```
+## 📁 Folder Structure Models
+
+`DEFC.Util.RepoGen` supports multiple folder structure models that enforce clean, maintainable architectures by default.  
+You can define your preferred structure via the `FoldersStructureModel` property in your `RepoGen.json` configuration file.
+
+Below are the supported models:
+
+---
+
+### 🧱 `MODEL_1` – Default (Clean Architecture Inspired)
+
+Ideal for small to medium-sized applications that follow the **clean architecture** pattern with clear separation of concerns.
+
+✅ **Use When**:
+- You want rapid setup, a simple layered structure, and maintainable code organization.
+- You're building MVPs, prototypes, or smaller-scale systems where full enterprise layering is unnecessary.
+
+---
+
+### 🧱 `MODEL_2` – Layered Architecture
+
+Follows a classic **layered architecture** with distinct separation between **Presentation**, **Application**, **Domain**, and **Infrastructure**.
+
+✅ **Use When**:
+- You're building scalable, enterprise-level applications with well-defined layers.
+- Collaboration, modular testing, and separation of domain logic are priorities — especially for large teams or multi-service environments.
+
+---
+
+### 🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)
+
+Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at the core and isolating infrastructure via ports and adapters.
+
+✅ **Use When**:
+- You need **maximum decoupling** between business logic and external systems (DB, APIs, etc.).
+- You're embracing **Domain-Driven Design (DDD)**, building **microservices**, or prioritizing **testability and modularity**.
+
+---
+
+### 🧱 `MODEL_CUSTOM` – Custom User-Defined Structure
+
+`MODEL_CUSTOM` allows you to define your **own folder structure** to fit your specific project architecture. 
+This model is designed for advanced users or teams that already follow a customized layout and want to integrate `RepoGen` seamlessly.
+
+✅ **Use When**:
+- You have an existing architecture not covered by the default models.
+- You require full control over the names and hierarchy of folders.
+- You are integrating RepoGen into a legacy or uniquely structured project.
+
+---
+
+#### 🗂️ `custom_model.json`
+
+This file defines your custom folder structure. Below is a basic example:
+
+```json
+{
+  // This file defines the custom project folder structure.
+  // You can add nested folders using "Children" arrays.
+  // Required folders must exist to satisfy the structure mapping.
+
+  "Structure": [
+    { "Name": "DBContext" },     // Folder for database context files
+    { "Name": "DTOs" },          // Folder for Data Transfer Objects
+    { "Name": "Interfaces" },    // Folder for repository interfaces
+    { "Name": "Models" },        // Folder for domain or EF models
+    { "Name": "Repositories" },  // Folder for concrete repositories
+    { "Name": "Services" },      // Folder for service layer classes
+    { "Name": "UnitOfWork" }     // Folder for unit of work implementation
+
+    // Example of a nested structure:
+    // {
+    //   "Name": "Core",
+    //   "Children": [
+    //     { "Name": "Repositories" },
+    //     { "Name": "Services" }
+    //   ]
+    // }
+  ]
+}
+
+```
+> 💡 **Important:** You can define **nested folders** using the `Children` property to represent complex, hierarchical structures.
+#### 🗂️ `structure_mapper.json`
+This file maps required logical components to the folders defined in your structure:
+```json
+{
+  // RequiredMappings define the logical folders your application MUST include.
+  // Each key is a required logical role (like 'DTOs'), and the value is the actual folder name in your structure.
+
+  "RequiredMappings": {
+    "DbContext": "DBContext",         // This folder represents EF DbContext files
+    "DTOs": "DTOs",                   // This folder represents DTOs
+    "IRepositories": "Interfaces",    // This folder represents repository interfaces
+    "Models": "Models",               // This folder represents models/entities
+    "Repositories": "Repositories",   // This folder represents concrete repo implementations
+    "Services": "Services",           // This folder represents business/service layer
+    "UnitOfWork": "UnitOfWork"        // This folder represents unit of work class
+  }
+}
+
+```
+> 💡 **Important:** All required mappings must be defined for the tool to operate correctly.  
+#### 🛠️ Activating MODEL_CUSTOM
+To use this model, update your `RepoGen.json` configuration file:
+```json
+{
+  "FoldersStructureModel": "MODEL_CUSTOM"
+}
+
+```
+Then, apply your custom folder structure by running:
+```bash
+dotnet tool run DEFC.Util.RepoGen structure set
+
+```
+### 🛠️ Switching Folder Structure
+
+To apply a specific structure, update your `RepoGen.json` configuration:
+
+```json
+{
+  "FoldersStructureModel": "MODEL_2"
+}
+```
+---
+
+### 🧩 Choosing a Structure
+
+| Model     | Ideal For                         | Separation Level | Complexity |
+|-----------|-----------------------------------|------------------|------------|
+| `MODEL_1` | Simple projects, quick start      | Medium           | Low        |
+| `MODEL_2` | Enterprise/layered applications   | High             | Medium     |
+| `MODEL_3` | Domain-driven, microservices apps | Very High        | High       |
+| `MODEL_CUSTOM`| Custom legacy or advanced architectures|	Custom |Variable    |
+
+> 💡 **Important:** If you're switching from one structure model to another, manually delete any previously generated folders to avoid conflicts,
+ then run the structure setup command again.
 ```bash
 dotnet tool run DEFC.Util.RepoGen structure set
 ```
-#### ⚠️ Important Notes
-- Make sure no extra spaces in the commands.
 
+## 🏁 Usage Guide
+### 📁 1. Initialization
+- Initialize the RepoGen tool
+```bash
+dotnet tool run DEFC.Util.RepoGen initial
+```
+- Force re-initialize the tool (overwrites existing files):
+```bash
+dotnet tool run DEFC.Util.RepoGen initial --force
+```
+```bash
+dotnet tool run DEFC.Util.RepoGen initial -f
+```
+### 🔧 2. Configuration
+ Customize the 'RepoGen.json' file with your specific data and save the changes.  See [RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
+### 🗂️ 3. Structure Setup
+- Generate the repository pattern folder structure:
+```bash
+dotnet tool run DEFC.Util.RepoGen structure set
+```
+### 🧪 4. Testing 
 - To confirm if the connection string in `RepoGen.json` is working:
 ```bash
 dotnet tool run DEFC.Util.RepoGen test db-connection
 ```
-- When need to remove any of mapped stored ptocedures you can use `remove` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen remove --sp sp_DeleteProduct --repo Products
-```
-
-- When need to re-map any of mapped stored ptocedures you can use `re-map` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen re-map --sp sp_DeleteProduct --repo Products
-```
-
-### ✅ Step 6: For ProductCategories table will use CRUD option
-- use `crud` command with table `ProductCategories`: 
+- Test the structure model:
 ```bash
-dotnet tool run DEFC.Util.RepoGen crud --tbl ProductCategories --service ProductCategory
+dotnet tool run DEFC.Util.RepoGen  structure test
 ```
-### ✅ Step 7: For `Products`, `Orders`, `Customers` tables will use Map option
-- use	`add` for creating `Products`,`Customers` and `Orders` Repository:
-
+### 🧱 5. Repository and Unit of Work Generation
+- Add a Unit of Work class (if not already added):
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --repo Products
-dotnet tool run DEFC.Util.RepoGen add --repo Customers
-dotnet tool run DEFC.Util.RepoGen add --repo Orders
+dotnet tool run DEFC.Util.RepoGen add --uow
 ```
-- use `map` command `sp_CreateProduct`,`sp_GetAllProducts`,`sp_GetProductById`,`sp_UpdateProduct` and `sp_DeleteProduct` stored procedures: 
+- Add a generic CRUD repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen map --sp sp_CreateProduct --repo Products
-dotnet tool run DEFC.Util.RepoGen map --sp sp_GetAllProducts --repo Products
-dotnet tool run DEFC.Util.RepoGen map --sp sp_GetProductById --repo Products
-dotnet tool run DEFC.Util.RepoGen map --sp sp_UpdateProduct --repo Products
-dotnet tool run DEFC.Util.RepoGen map --sp sp_DeleteProduct --repo Products
+dotnet tool run DEFC.Util.RepoGen add --crud
 ```
-- use `map` command `sp_CreateCustomer`,`sp_GetAllCustomers`,`sp_GetCustomerById`,`sp_UpdateCustomer` and `sp_DeleteCustomer` stored procedures: 
+- Force replace the existing CRUD repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen map --sp sp_CreateCustomer --repo Customers
-dotnet tool run DEFC.Util.RepoGen map --sp sp_GetAllCustomers --repo Customers
-dotnet tool run DEFC.Util.RepoGen map --sp sp_GetCustomerById --repo Customers
-dotnet tool run DEFC.Util.RepoGen map --sp sp_UpdateCustomer --repo Customers
-dotnet tool run DEFC.Util.RepoGen map --sp sp_DeleteCustomer --repo Customers
+dotnet tool run DEFC.Util.RepoGen add --crud --force
 ```
-- use `map` command `sp_CreateOrder`,`sp_GetAllOrders`,`sp_GetOrderById`,`sp_UpdateOrder` and `sp_DeleteOrder` stored procedures: 
 ```bash
-dotnet tool run DEFC.Util.RepoGen map --sp sp_CreateOrder --repo Orders
-dotnet tool run DEFC.Util.RepoGen map --sp sp_GetAllOrders --repo Orders
-dotnet tool run DEFC.Util.RepoGen map --sp sp_GetOrderById --repo Orders
-dotnet tool run DEFC.Util.RepoGen map --sp sp_UpdateOrder --repo Orders
-dotnet tool run DEFC.Util.RepoGen map --sp sp_DeleteOrder --repo Orders
+dotnet tool run DEFC.Util.RepoGen add --crud -f
 ```
-### ✅ Step 8: For `OrderItems` table will use batch option
-- Add batch file called `batch-orderitems`.
+- Add a new repository with unit of work (if not exists):
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --batch batch-orderitems
+dotnet tool run DEFC.Util.RepoGen add --repo REPO_NAME
 ```
-- Generated file location **Path:** `SampleStore/RepoGenTool/Batches/batch-orderitems.json`.
-- The generated file will include **sample nodes** like below:
-
-```json
-{
-  "Commands": [
-    {
-      "ID": "add-repo",
-      "Command": "add --repo REPO_NAME"
-    },
-    {
-      "ID": "map-insert",
-      "Command": "map --sp STORED_PROCEDURE_NAME --repo REPO_NAME"
-    },
-    {
-      "ID": "re-map-update",
-      "Command": "re-map --sp STORED_PROCEDURE_NAME --repo REPO_NAME"
-    },
-    {
-      "ID": "remove-delete",
-      "Command": "remove --sp STORED_PROCEDURE_NAME --repo REPO_NAME"
-    } 
-    ,
-    {
-      "ID": "curd-table",
-      "Command": "crud --tbl TABLE_NAME --service SERVICE_NAME"
-    } 
-
-  ]
-}
+### 🔁 6. Stored Procedure Mapping
+- Map a stored procedure to a repository:
+```bash
+dotnet tool run DEFC.Util.RepoGen map --sp STORED_PROCEDURE_NAME --repo REPO_NAME
 ```
-- Change in this file to be lke below:
+- Remap a stored procedure to a repository:
+```bash
+dotnet tool run DEFC.Util.RepoGen re-map --sp STORED_PROCEDURE_NAME --repo REPO_NAME
+```
+- Remove a mapped stored procedure:
+```bash
+dotnet tool run DEFC.Util.RepoGen remove --sp STORED_PROCEDURE_NAME --repo REPO_NAME
+```
+### 🧬 7. CRUD
+- Generate CRUD a table:
+```bash
+dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME
+```
+- Force regenerate CRUD operations for a table:
+```bash
+dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME --force
+```
+### 📄 8. Batch Operations
+- Add a batch file sample:
+```bash
+dotnet tool run DEFC.Util.RepoGen add --batch FILE_NAME_WITHOUT_EXTENSION
+```
+- Run batch of commends from a JSON file:
+```bash
+dotnet tool run DEFC.Util.RepoGen batch --file FILE_NAME
+```
+#### Batch File Sample
 ```json
 {
   "Commands": [
@@ -246,160 +394,125 @@ dotnet tool run DEFC.Util.RepoGen add --batch batch-orderitems
   ]
 }
 ```
-- Run batch of commends from a JSON file:
-```bash
-dotnet tool run DEFC.Util.RepoGen batch --file batch-orderitems
-``` 
-- This will: 
-    - Create OrderItems reposatory.
-    - Map stored procedures for OrderItems written in `batch-orderitems.json`.
-### ✅ Explore the Generated Code & Add required logics and validations
-Look inside the following folders:
 
-- Repositories
-- Interfaces (IRepositories)
-- Services
-- DTOs
-- Find the auto-generated ProductsRepository, UnitOfWork, etc.
-##  ✅ Step 10: Configure your application
-This based on your application requirements.
-- Confuger database connection string in `appsettings.json` file.
-```json
-...............
-  "AllowedHosts": "*",
-  "ConnectionStrings": {
-    "ConnectionString": "Server=SERVER_NAME;Database=DATABASE_NAME;User Id=USER_NAME;Password=PASSWORD;TrustServerCertificate=True"
+## 🐞 Troubleshooting & Error Handling
+This section covers common issues users might encounter while using the tool, along with potential causes and resolutions.
+### ❌ Error: The option 'XXX' is not valid
+**Cause:** This error typically occurs when an invalid option is passed to the CLI tool, or the command is not recognized.
+**Solution:** 
+- Make sure you are using the Write option.
+- Usage: dotnet tool run DEFC.Util.RepoGen help or See [Usage Guide](#-usage-guide) section.
+### ❌ Error: Invalid command. Please provide valid arguments.
+**Cause:** This error typically occurs when an invalid command is passed to the CLI tool, or the command is not recognized.
+**Solution:**
+- Make sure you are using the Write command.
+- Usage: dotnet tool run DEFC.Util.RepoGen help or See [Usage Guide](#-usage-guide) section.
 
-  }
-}
-```
-- Confuger database connection string in `Program.cs` file.
-```c#
-.....................
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<StoreDBContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString"));
-}
-);
-......................
-```
-- Add any other configurations needed.
+### ❌ Error: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+**Cause:**
 
-## ✅ Step 11: Wire It to the API
-- Create a basic controllers called `Products`,`Customers` and `Orders`, etc.
-- Link them to unit of work class.
- ```C#
-    [ApiController]
-    [Route("api/[controller]")]
-    public class ProductsController : Controller
-    {
-        private readonly IUnitOfWork _unitOfWork; 
-        public ProductsController(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
-        .........
-    }
-```
-> ⚠️ **Important**: Open `ProductsController` in the **SampleStore** app, then **uncomment the code** to enable faster testing during development.
----
+- This error typically indicates one of the following:
+- The SQL Server instance is not running or accessible.
+- Incorrect server name or instance name in the connection string.
+- The SQL Server instance is not configured to allow remote connections.
+- Network issues or firewall restrictions preventing the connection.
+**Solution:**
 
-## 📚 For More Tool Training
+**1- Check SQL Server instance status:**
+- Ensure the SQL Server instance is running. You can check the SQL Server instance status through **SQL Server Configuration Manager** or **Services in Windows**.
+**2- Verify the connection string:**
+- Double-check that the connection string in `RepoGen.json` is correct. Ensure the **server name**, **instance name**, and **authentication credentials** are valid.
+**3- Check SQL Server configuration:**
+- Ensure the SQL Server instance is configured to allow remote connections.
+**4- Check firewall settings:**
+- Ensure there are no **firewall** rules blocking SQL Server connections:
+**5- Test with SQL Server Management Studio (SSMS):**
+- Try connecting to the database manually using SSMS with the same credentials and connection string.
+- If it works in SSMS but not via the tool, there might be issues with how the connection string is configured or passed to the tool.
+**6- Check Named Pipes and TCP/IP settings:**
+- If the error mentions the **Named Pipes provider**, you may need to configure SQL Server to accept TCP/IP connections instead of Named Pipes:
+- Open **SQL Server Configuration Manager**, then ensure **TCP/IP** is enabled and configured correctly.
+**7- Test network connectivity:**
+- Use **ping** or **telnet** to test network connectivity between the application and the SQL Server.
 
-Once you complete the main task, try redoing it using a different folder structure model.  
-This helps you better understand clean architecture strategies and how `DEFC.Util.RepoGen` adapts to different setups.
+## 🔔 Important Notes
+- **Do not change the folder structure** generated by the tool. It’s designed to support consistency, clean architecture, and team alignment.
+- **Review the auto-generated comments and documentation**, and update them to match your project’s standards as needed.
+- **Avoid modifying or moving generated files manually.** For the tool to work effectively, the file structure must remain intact.
+- This tool is built to help your team stay in sync and maintain a **clean**, **maintainable** codebase. Changing the generated structure may cause issues and defeat the purpose of using the tool.
 
----
-### 🧱 Challenge 1: Remap Stored Procedure
-1. **Add new field `PhoneNumber` with datatype `nvarchar(150)` to `Customers` table.**
-```sql
-ALTER TABLE Customers ADD PhoneNumber nvarchar(150) null;
-```
-2. **Alter `sp_CreateCustomer` stored procedure to accept the new `PhoneNumber` field.**
-```sql 
-ALTER PROCEDURE [dbo].[sp_CreateCustomer]
-    @FirstName NVARCHAR(100),
-    @LastName NVARCHAR(100),
-    @Email NVARCHAR(150),
-    @PhoneNumber NVARCHAR(150)
-AS
-BEGIN
-    INSERT INTO Customers (FirstName, LastName, Email,PhoneNumber)
-    VALUES (@FirstName, @LastName, @Email,@PhoneNumber);
-    
-    SELECT SCOPE_IDENTITY() AS NewCustomerId;
-END
-```
-3. **use `re-map` command to apply the changes**
-```bash
-dotnet tool run DEFC.Util.RepoGen re-map --sp sp_CreateCustomer --repo Customers
-```
-4. **Verify updates**
-- Open `sp_CreateCustomer_DTO` class and confirm the `PhoneNumber` field is included.
-- Open `Customers` repository and ensure the changes have been correctly applied.
+## 💡 Example Usage
+A sample application is available on GitHub to help you get started with `DEFC.Util.RepoGen`.
 
-### 🧱 Challenge 2: Remove Stored Procedure
-1. **Assumption:**  
-   We want to remove the `sp_DeleteOrder` stored procedure mapping.
-2. **Use `remove` command to remove the mapped stored procedure**
-```bash
-   dotnet tool run DEFC.Util.RepoGen remove --sp sp_DeleteOrder --repo Orders
-```
-### 🧱 Challenge 3: Force Overwrite Using --force or -f
-- Try regenerating a CRUD layer for an existing table with the force option:
-```bash
-dotnet tool run DEFC.Util.RepoGen crud --tbl ProductCategories --service ProductCategory --force
-```
-Or shorthand:
-```bash
-dotnet tool run DEFC.Util.RepoGen crud --tbl ProductCategories --service ProductCategory -f
-```
-> ⚠️ This overwrites existing files. Useful when structure or schema has changed.
+### Sample Application
 
-### 🧱 Challenge 4: Change Structure Model
-- Try using `MODEL_2` (Layered), (Hexagonal) `MODEL_3` (Hexagonal) or `MODEL_CUSTOM` and observe code layout changes.
-> ⚠️ This Challenge is the most critical
-1. Manually delete(or keep aside) previously generated folders (to avoid conflicts):
-    ```bash
-    # Delete folders like Services, Repositories, etc.
-    ```
-2. Open `RepoGen.json` and update the structure model:
-    ```json
-    {
-      "FoldersStructureModel": "MODEL_2"
-    }
-    ```
-3. Re-run the folder setup:
-    ```bash
-    dotnet tool run DEFC.Util.RepoGen structure set
-    ```
-4. Re-run the batch setup:
-    ```bash
-    dotnet tool run DEFC.Util.RepoGen batch --file batch-orderitems
-    ```
-5. Observe how the folder layout and organization differ from `MODEL_1`.
+You can find a sample app that demonstrates how to configure and use `DEFC.Util.RepoGen` to generate repositories and unit of work patterns for SQL Server stored procedures.
 
-> 🔁 You can also try `MODEL_3` (Hexagonal) or define your own using `MODEL_CUSTOM`.
+- **Example Usage**: [DEFC.Util.RepoGen Sample App](https://github.com/AminaElsheikh/DEFC.Util.RepoGen)
 
----
-## 🎯 Learning Objectives
-By completing this task, you will:
+The sample app includes:
+- **Basic Setup**: How to configure `RepoGen.json` for your project.
+- **Repository Generation**: Step-by-step instructions on generating repositories and mapping stored procedures.
+- **Unit of Work Implementation**: Example of integrating the unit of work pattern with the generated repositories.
 
-- Understand the Repository & Unit of Work patterns.
-- Learn to use a CLI-based code generator in real projects.
-- Follow clean architecture principles in a .NET Core application.
-- Map, Re-map and Remove stored procedures to strongly typed repository methods.
-- CRUD tables to strongly typed services methods.
+Feel free to clone or fork the repository and explore in your own projects!
+## 📝 License
+This project is licensed under the **Elastic License 2.0**.
 
-## 📩 Questions?
-If you’re stuck or want feedback on your solution: Open a [GitHub Issue](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/issues) with your question
+You are permitted to:
 
-### 🎯 Learning Outcome
-- Understand how layered architecture separates **application**, **domain**, and **infrastructure** logic.
-- Learn to switch architectural styles without changing your business logic.
-- Practice adapting tools to enterprise-grade coding standards.
- 
+- Use the software for any purpose, including commercial use.
+- Run the software as part of your service offering.
+
+You are **not permitted to**:
+
+- Modify the software.
+- Redistribute the software, in whole or in part, or as part of another software product.
+- Remove any attribution or claim the software as your own.
+- Use the software to build or offer a competing service.
+
+By using this software, you agree to the [Elastic License 2.0](https://www.elastic.co/licensing/elastic-license).
+
+> © 2025 Amina El-Sheikh. All rights reserved.
+
+## 📞 Contact
+If you have any questions, feedback, or need support, feel free to reach out:
+
+- **GitHub**: [AminaElSheikh](https://github.com/AminaElSheikh)
+- **LinkedIn**: [Amina El-Sheikh](https://www.linkedin.com/in/amina-el-sheikh-05254884/)
+## 🐞 Issues
+If you encounter any bugs, have suggestions for new features, or need assistance with the tool, please open an issue in the GitHub repository.
+
+### How to Report an Issue
+1. **Check Existing Issues**: Before creating a new issue, please search through the [existing issues](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/issues) to see if your problem or question has already been addressed.
+2. **Provide Detailed Information**: When creating a new issue, provide as much detail as possible. Include information like:
+   - The version of the tool you're using
+   - A description of the problem or feature request
+   - Steps to reproduce the issue (if applicable)
+   - Any error messages or logs
+3. **Feature Requests**: If you'd like to request a new feature or improvement, feel free to create an issue with a description of the functionality you'd like to see.
+
+### How to Contribute
+If you're interested in contributing to the project, please follow these guidelines:
+1. **Fork the Repository**: Start by forking the project on GitHub.
+2. **Clone Your Fork**: Clone your fork to your local machine and create a new branch.
+3. **Make Your Changes**: Implement the changes or fix the bug you want to contribute.
+4. **Commit Your Changes**: Commit your changes to your branch.
+5. **Open a Pull Request**: Once you're ready, open a pull request to the main repository. Please ensure that your PR is well-documented and includes relevant information (e.g., fixes for bugs or explanations for new features).
+
+We welcome contributions and feedback to improve the tool!
+
+## 📦 Other Nugets
+### DEFC.Util.DataValidation
+- For using: [Nuget](https://www.nuget.org/packages/DEFC.Util.DataValidation)
+- [GitHub Sample](https://github.com/AminaElsheikh/DEFC.Util.DataValidationExamples)
+- Read: [Dev.to](https://dev.to/aminaelsheikh/data-validation-nuget-package-kco)
+### DEFC.Util.Generator
+- For using: [Nuget](https://www.nuget.org/packages/DEFC.Util.Generator)
+- [GitHub Sample](https://github.com/AminaElsheikh/DEFC.Util.GeneratorExamples)
+- Read: [Dev.to](https://dev.to/aminaelsheikh/data-generator-nuget-package-1fij)
+
 
 Your support is greatly appreciated and helps keep this project active and maintained! 🙏
+
 

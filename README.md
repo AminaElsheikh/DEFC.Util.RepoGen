@@ -22,7 +22,7 @@ which automates repository and Unit of Work generation using **SQL Server stored
    - [✅ Step 10: Configure your application](#-step-10-configure-your-application)
    - [✅ Step 11: Wire It to the API](#-step-11-wire-it-to-the-api)
 5. [📚 For More Tool Training](#-for-more-tool-training)
-6. [🧱 Challenges](#-challenges)
+6. [🧱 Challenges](#-challenge-1-remap-stored-procedure)
    - [Challenge 1: Remap Stored Procedure](#-challenge-1-remap-stored-procedure)
    - [Challenge 2: Remove Stored Procedure](#-challenge-2-remove-stored-procedure)
    - [Challenge 3: Force Overwrite Using --force or -f](#-challenge-3-force-overwrite-using---force-or--f)

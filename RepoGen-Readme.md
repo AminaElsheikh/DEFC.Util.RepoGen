@@ -2,17 +2,35 @@
 A powerful .NET CLI tool and NuGet package that automates the generation of repositories and unit of work patterns around SQL 
 Server stored procedures, to accelerate clean architecture development.
 
-# Table of Contents
+## Table of Contents
+
+- [ℹ️ About](#-about)
+- [🎯 Objective](#-objective)
+- [🚀 Benefits](#-benefits)
+- [🔌 Supported Technologies](#-supported-technologies)
+- [🛠️ Prerequisites](#️-prerequisites)
+- [📦 Installation](#-installation)
+- [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
+- [📁 Folder Structure Models](#-folder-structure-models)
+- [🏁 Usage Guide](#-usage-guide)
+- [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
+- [🔔 Important Notes](#-important-notes)
+- [💡 Example Usage](#-example-usage)
+- [📝 License](#-license)
+- [📞 Contact](#-contact)
+- [🐞 Issues](#-issues)
+- [📦 Other Nugets](#-other-nugets)
+
 
 1. [ℹ️ About](#-about)
 2. [🎯 Objective](#-objective)
 3. [🚀 Benefits](#-benefits)
 4. [🔌 Supported Technologies](#-supported-technologies)
-   - [🗄️ Database Providers](#-database-providers)
-   - [⚙️ .NET Versions](#-.net-versions)
+   - [🗄️ Database Providers](#-Database-providers)
+   - [⚙️ .NET Versions](#-net-versions)
    - [🧱 Design Patterns Used](#-design-patterns-used)
    - [🖥️ Recommended Execution Environments](#-recommended-execution-environments)
-5. [🛠️ Prerequisites](#-prerequisites)
+5. [🛠️ Prerequisites](#️-prerequisites)
 6. [📦 Installation](#-installation)
 7. [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
 8. [📁 Folder Structure Models](#-folder-structure-models)
@@ -30,20 +48,20 @@ Server stored procedures, to accelerate clean architecture development.
    - [🧬 7. CRUD](#-7-crud)
    - [📄 8. Batch Operations](#-8-batch-operations)
 10. [🐞 Troubleshooting & Error Handling](#-troubleshooting-error-handling)
-   - [❌ Error: The option 'XXX' is not valid](#-error-the-option-xxx-is-not-valid)
-   - [❌ Error: Invalid command. Please provide valid arguments.](#-error-invalid-command-please-provide-valid-arguments)
-   - [❌ Error: A network-related or instance-specific error occurred while establishing a connection to SQL Server.](#-error-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server)
+     - [❌ Error: The option 'XXX' is not valid](#-error-the-option-xxx-is-not-valid)
+     - [❌ Error: Invalid command. Please provide valid arguments.](#-error-invalid-command-please-provide-valid-arguments)
+     - [❌ Error: A network-related or instance-specific error occurred while establishing a connection to SQL Server.](#-error-a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server)
 11. [🔔 Important Notes](#-important-notes)
 12. [💡 Example Usage](#-example-usage)
 13. [📝 License](#-license)
 14. [📞 Contact](#-contact)
 15. [🐞 Issues](#-issues)
-   - [How to Report an Issue](#how-to-report-an-issue)
-   - [How to Contribute](#how-to-contribute)
+    - [How to Report an Issue](#how-to-report-an-issue)
+    - [How to Contribute](#how-to-contribute)
 16. [📦 Other Nugets](#-other-nugets)
-   - [DEFC.Util.DataValidation](#defcutildatavalidation)
-   - [DEFC.Util.Generator](#defcutilgenerator)
-
+    - [DEFC.Util.DataValidation](#defcutildatavalidation)
+    - [DEFC.Util.Generator](#defcutilgenerator)
+    
 ## ℹ️ About
 **DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate repositories and Unit of Work classes that map to SQL Server stored procedures. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a clean architecture within .NET applications.
 

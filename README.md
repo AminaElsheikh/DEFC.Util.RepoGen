@@ -23,8 +23,6 @@ You'll generate the necessary code structure without writing boilerplate reposit
 
 ## 🛠️ Prerequisites
 
-[See RepoGen Prerequisites](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#%EF%B8%8F-prerequisites)
-
 Make sure the following are installed:
 
 - SQL Server
@@ -43,16 +41,10 @@ Make sure the following are installed:
 
 ### ✅ Step 1: Create the Database
 - Open SQL Server Management Studio (SSMS) or any SQL client.
-- [Run the script](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/tree/main/DB):
-```bash
-	/DB/SampleStore.sql
-```
-- This creates tables like `Products`, `ProductCategories`, `Orders`, `Customers`, `OrderItems` and a few stored procedures.
+- [Run the script](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/tree/main/DB)
+- This creates tables `Products`, `ProductCategories`, `Orders`, `Customers`, `OrderItems` and a few stored procedures.
 ### ✅ Step 2: Open the API Project
 - Open the [`SampleStore`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/tree/main/SampleStore) solution in Visual Studio.
-```bash
-	/SampleStore
-```
 - Review the structure — **do not manually add repositories or services**.
 ### ✅ Step 3: Initialize the RepoGen tool
 - Open **Developer PowerShell for Visual Studio** *(recommended)* — provides better visualization and output formatting.
@@ -68,12 +60,41 @@ dotnet tool run DEFC.Util.RepoGen initial
 ```bash 
 SampleStore/RepoGenTool/RepoGen.json
 ```
-- Confirm it contains the correct:
-	- Connection string to SampleStore DB 
-	- DBContextName (e.g., Store)
-	- Namespace (e.g., SampleStore)
-	- Folder structure model (e.g., MODEL_1) [See RepoGen Supported models](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/RepoGen-Readme.md#-folder-structure-models)
+ ## ✅ RepoGen Configuration Checklist
 
+Please verify and update the following in the file:
+
+**Path:** `SampleStore/RepoGenTool/RepoGen.json`
+
+#### 🔧 Required Configuration Fields
+
+| Field                    | Status     | Description                                                                                   | Example Value            |
+|-------------------------|------------|-----------------------------------------------------------------------------------------------|--------------------------|
+| `ConnectionString`      | ❌ Pending | Valid connection string to the SampleStore database                                           | `Server=localhost;Database=SampleStore;User Id=admin;Password=secret;TrustServerCertificate=True` |
+| `DBContextName`         | ❌ Pending | Base name for the `DbContext` (suffix `DBContext` will be added automatically)               | `Store`                  |
+| `Namespace`             | ❌ Pending | Root namespace to be used for generated code                                                  | `SampleStore`            |
+| `FoldersStructureModel` | ✅ Set      | Structure model used for organizing the generated codebase                                   | `MODEL_1`                |
+
+> ℹ️ **Note:** Other folder models include `MODEL_2`, `MODEL_3`, and `MODEL_CUSTOM`.
+
+#### 📁 Example `RepoGen.json`
+
+```json
+{
+  "Config": {
+    "DBConfig": {
+      "SchemaID": "1",
+      "DBContextName": "Store",
+      "ConnectionString": "Server=localhost;Database=SampleStore;User Id=admin;Password=secret;TrustServerCertificate=True"
+    },
+    "AppConfig": {
+      "Namespace": "SampleStore",
+      "FoldersStructureModel": "MODEL_1",
+      "LoggerCode": "101"
+    }
+  }
+}
+```
 ### ✅ Step 5: Set-up app folder structure
 
 ```bash
@@ -256,6 +277,7 @@ builder.Services.AddDbContext<StoreDBContext>(options =>
         .........
     }
 ```
+> ⚠️ **Important**: Open `ProductsController` in the **SampleStore** app, then **uncomment the code** to enable faster testing during development.
 ---
 
 ## 📚 For More Tool Training

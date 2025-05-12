@@ -32,7 +32,7 @@ Make sure the following are installed:
     - `Microsoft.Data.SqlClient`
     - `Microsoft.EntityFrameworkCore.SqlServer`
     - `Microsoft.EntityFrameworkCore`
-    - `DEFC.Util.RepoGen` installed globally or locally:
+    - `DEFC.Util.RepoGen`
       ```bash
       dotnet add package DEFC.Util.RepoGen --version 1.0.0
       ```
@@ -47,14 +47,17 @@ Make sure the following are installed:
 ```bash
 	/DB/SampleStore.sql
 ```
-- This creates tables like `Products`, `ProductCategories`, `Orders`, `Customers` and a few stored procedures.
+- This creates tables like `Products`, `ProductCategories`, `Orders`, `Customers`, `OrderItems` and a few stored procedures.
 ### ✅ Step 2: Open the API Project
 - Open the `SampleStore` solution in Visual Studio.
+```bash
+	/SampleStore
+```
 - Review the structure — **do not manually add repositories or services**.
 ### ✅ Step 3: Initialize the RepoGen tool
-- Open **Developer PowerShell for Visual Studio** *(recommended)* — provides better visualization and output formatting.		
-  (OR) **Package Manager Console** in Visual Studio.
-  (OR) **.NET CLI** from terminal or command prompt.
+- Open **Developer PowerShell for Visual Studio** *(recommended)* — provides better visualization and output formatting.
+    - (OR) **.NET CLI** from terminal or command prompt *(recommended)* — provides better visualization and output formatting.		
+    - (OR) **Package Manager Console** in Visual Studio.
 - Write the initialization command below
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial

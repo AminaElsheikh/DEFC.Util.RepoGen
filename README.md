@@ -29,9 +29,7 @@ You'll generate the necessary code structure without writing boilerplate reposit
 | File/Folder                  | Description                                         |
 |-----------------------------|-----------------------------------------------------|
 | `SampleStore.sql`           | SQL script to create and seed the database          |
-| `Store/`                    | .NET Core 6+ API project skeleton                   |
-| `store-setup.batch.json`    | Batch command script for RepoGen                    |
-| `RepoGen.json`              | Tool configuration file with DB & folder settings   |
+| `Store/`                    | .NET Core 6+ API project skeleton                   |  
 | `SampleStore-commands.txt`              | A RepoGen commands to follow   |
 
 ---

@@ -60,7 +60,7 @@ dotnet tool run DEFC.Util.RepoGen initial
 ```bash 
 SampleStore/RepoGenTool/RepoGen.json
 ```
- ## ✅ RepoGen Configuration Checklist
+ #### ✅ RepoGen Configuration Checklist
 
 Please verify and update the following in the file:
 

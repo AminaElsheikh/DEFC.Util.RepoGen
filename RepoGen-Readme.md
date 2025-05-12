@@ -4,24 +4,6 @@ Server stored procedures, to accelerate clean architecture development.
 
 ## Table of Contents
 
-- [ℹ️ About](#-about)
-- [🎯 Objective](#-objective)
-- [🚀 Benefits](#-benefits)
-- [🔌 Supported Technologies](#-supported-technologies)
-- [🛠️ Prerequisites](#️-prerequisites)
-- [📦 Installation](#-installation)
-- [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
-- [📁 Folder Structure Models](#-folder-structure-models)
-- [🏁 Usage Guide](#-usage-guide)
-- [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
-- [🔔 Important Notes](#-important-notes)
-- [💡 Example Usage](#-example-usage)
-- [📝 License](#-license)
-- [📞 Contact](#-contact)
-- [🐞 Issues](#-issues)
-- [📦 Other Nugets](#-other-nugets)
-
-
 1. [ℹ️ About](#-about)
 2. [🎯 Objective](#-objective)
 3. [🚀 Benefits](#-benefits)

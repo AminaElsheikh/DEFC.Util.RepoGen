@@ -11,7 +11,7 @@ Server stored procedures, to accelerate clean architecture development.
    - [🗄️ Database Providers](#️-database-providers)
    - [⚙️ .NET Versions](#️-net-versions)
    - [🧱 Design Patterns Used](#-design-patterns-used)
-   - [🖥️ Recommended Execution Environments](#-recommended-execution-environments)
+   - [🖥️ Recommended Execution Environments](#️-recommended-execution-environments)
 5. [🛠️ Prerequisites](#️-prerequisites)
 6. [📦 Installation](#-installation)
 7. [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)

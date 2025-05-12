@@ -4,7 +4,7 @@ Server stored procedures, to accelerate clean architecture development.
 
 ## Table of Contents
 
-1. [ℹ️ About](#-about)
+1. [ℹ️ About](#️-about)
 2. [🎯 Objective](#-objective)
 3. [🚀 Benefits](#-benefits)
 4. [🔌 Supported Technologies](#-supported-technologies)

@@ -253,7 +253,7 @@ dotnet tool run DEFC.Util.RepoGen batch --file batch-orderitems
 - This will: 
     - Create OrderItems reposatory.
     - Map stored procedures for OrderItems written in `batch-orderitems.json`.
-## Step 9:✅ Explore the Generated Code & Add required logics and validations
+## ✅ Step 9: Explore the Generated Code & Add required logics and validations
 Look inside the following folders:
 
 - Repositories

@@ -15,7 +15,7 @@ Server stored procedures, to accelerate clean architecture development.
 5. [🛠️ Prerequisites](#️-prerequisites)
 6. [📦 Installation](#-installation)
 7. [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
-8. [🔒 Security & Privacy Assurance](#-security--privacy-assurance)  <!-- New Section -->
+8. [🔒 Security & Privacy Assurance](#️-security--privacy-assurance)
 9. [📁 Folder Structure Models](#-folder-structure-models)
    - [🧱 `MODEL_1` – Default (Clean Architecture Inspired)](#-model_1--default-clean-architecture-inspired)
    - [🧱 `MODEL_2` – Layered Architecture](#-model_2--layered-architecture)

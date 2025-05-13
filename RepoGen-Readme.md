@@ -170,6 +170,7 @@ We understand the importance of **data privacy** and **security** for developers
 - **Local execution**: All processing is done locally, ensuring that your code is not exposed to the internet or any external databases.
 
 With RepoGen, you can focus on coding and generating repositories without worrying about unauthorized access or data breaches.
+
 ---
 ## 📁 Folder Structure Models
 

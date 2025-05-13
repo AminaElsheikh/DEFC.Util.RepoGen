@@ -9,18 +9,19 @@ Server stored procedures, to accelerate clean architecture development.
 3. [🚀 Benefits](#-benefits)
 4. [🔌 Supported Technologies](#-supported-technologies)
    - [🗄️ Database Providers](#️-database-providers)
-   - [⚙️ .NET Versions](#️-net-versions)
+   - [⚙️ .NET Versions](#-net-versions)
    - [🧱 Design Patterns Used](#-design-patterns-used)
    - [🖥️ Recommended Execution Environments](#️-recommended-execution-environments)
 5. [🛠️ Prerequisites](#️-prerequisites)
 6. [📦 Installation](#-installation)
 7. [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
-8. [📁 Folder Structure Models](#-folder-structure-models)
+8. [🔒 Security & Privacy Assurance](#-security--privacy-assurance)  <!-- New Section -->
+9. [📁 Folder Structure Models](#-folder-structure-models)
    - [🧱 `MODEL_1` – Default (Clean Architecture Inspired)](#-model_1--default-clean-architecture-inspired)
    - [🧱 `MODEL_2` – Layered Architecture](#-model_2--layered-architecture)
    - [🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)](#-model_3--hexagonal-architecture-ports--adapters)
    - [🧱 `MODEL_CUSTOM` – Custom User-Defined Structure](#-model_custom--custom-user-defined-structure)
-9. [🏁 Usage Guide](#-usage-guide)
+10. [🏁 Usage Guide](#-usage-guide)
    - [📁 1. Initialization](#-1-initialization)
    - [🔧 2. Configuration](#-2-configuration)
    - [🗂️ 3. Structure Setup](#️-3-structure-setup)
@@ -29,15 +30,15 @@ Server stored procedures, to accelerate clean architecture development.
    - [🔁 6. Stored Procedure Mapping](#-6-stored-procedure-mapping)
    - [🧬 7. CRUD](#-7-crud)
    - [📄 8. Batch Operations](#-8-batch-operations)
-10. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
-11. [🔔 Important Notes](#-important-notes)
-12. [💡 Example Usage](#-example-usage)
-13. [📝 License](#-license)
-14. [📞 Contact](#-contact)
-15. [🐞 Issues](#-issues)
+11. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
+12. [🔔 Important Notes](#-important-notes)
+13. [💡 Example Usage](#-example-usage)
+14. [📝 License](#-license)
+15. [📞 Contact](#-contact)
+16. [🐞 Issues](#-issues)
     - [How to Report an Issue](#how-to-report-an-issue)
     - [How to Contribute](#how-to-contribute)
-16. [📦 Other Nugets](#-other-nugets)
+17. [📦 Other Nugets](#-other-nugets)
     - [DEFC.Util.DataValidation](#defcutildatavalidation)
     - [DEFC.Util.Generator](#defcutilgenerator)
     
@@ -160,6 +161,16 @@ When you first initialize the tool with the following command:
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial
 ```
+## **Security & Privacy Assurance**
+
+We understand the importance of **data privacy** and **security** for developers. RepoGen is designed with your privacy in mind:
+
+- **No external connections**: RepoGen operates **entirely offline**. Your code stays on your local machine, and no data is sent to any external servers or third-party services.
+- **No online links or tracking**: RepoGen does **not** rely on any online APIs or links that could potentially compromise the safety of your code. Your repository data stays private and under your control.
+- **Local execution**: All processing is done locally, ensuring that your code is not exposed to the internet or any external databases.
+
+With RepoGen, you can focus on coding and generating repositories without worrying about unauthorized access or data breaches.
+---
 ## 📁 Folder Structure Models
 
 `DEFC.Util.RepoGen` supports multiple folder structure models that enforce clean, maintainable architectures by default.  

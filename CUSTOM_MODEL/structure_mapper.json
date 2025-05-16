@@ -1,0 +1,11 @@
+{
+  "RequiredMappings": {
+    "DBContext": "Persistence", // AppDbContext.cs usually resides here
+    "DTOs": "DTOs", // Data Transfer Objects used by use cases
+    "IRepositories": "Interfaces", // Interfaces for repositories
+    "Models": "Entities", // Domain models or entities
+    "Repositories": "Repositories", // Concrete repository implementations
+    "Services": "Services", // Business logic, organized by use cases
+    "UnitOfWork": "UnitOfWork" // Unit of Work pattern implementation
+  }
+}

@@ -13,7 +13,7 @@ which automates repository and Unit of Work generation using **SQL Server stored
    - [✅ Step 2: Open the API Project](#-step-2-open-the-api-project)
    - [✅ Step 3: Initialize the RepoGen tool](#-step-3-initialize-the-repogen-tool)
    - [✅ Step 4: Review the Configuration](#-step-4-review-the-configuration)
-   - [✅ Step 5: Set-up app folder structure to CUSTOM_MODEL](#-step-5-set-up-app-folder-structure)
+   - [✅ Step 5: Set-up app folder structure to CUSTOM_MODEL](#-step-5-set-up-app-folder-structure-to-custom_model)
    - [✅ Step 6: Use CRUD option for ProductCategories](#-step-6-for-productcategories-table-will-use-crud-option)
    - [✅ Step 7: Use Map option for Products, Orders, Customers](#-step-7-for-products-orders-customers-tables-will-use-map-option)
    - [✅ Step 8: Use Batch option for OrderItems](#-step-8-for-orderitems-table-will-use-batch-option)

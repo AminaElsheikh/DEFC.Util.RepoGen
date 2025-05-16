@@ -13,7 +13,7 @@ which automates repository and Unit of Work generation using **SQL Server stored
    - [✅ Step 2: Open the API Project](#-step-2-open-the-api-project)
    - [✅ Step 3: Initialize the RepoGen tool](#-step-3-initialize-the-repogen-tool)
    - [✅ Step 4: Review the Configuration](#-step-4-review-the-configuration)
-   - [✅ Step 5: Set-up app folder structure to CUSTOM_MODEL](#-step-5-set-up-app-folder-structure-to-custom_model)
+   - [✅ Step 5: Set-up app folder structure to CUSTOM_MODEL](#-step-5-set-up-app-folder-structure)
    - [✅ Step 6: Use CRUD option for ProductCategories](#-step-6-for-productcategories-table-will-use-crud-option)
    - [✅ Step 7: Use Map option for Products, Orders, Customers](#-step-7-for-products-orders-customers-tables-will-use-map-option)
    - [✅ Step 8: Use Batch option for OrderItems](#-step-8-for-orderitems-table-will-use-batch-option)
@@ -74,9 +74,9 @@ Please verify and update the following in the file:
 | `ConnectionString`      | ❌ Pending | Valid connection string to the SampleStore database                                           | `Server=localhost;Database=SampleStore;User Id=admin;Password=secret;TrustServerCertificate=True` |
 | `DBContextName`         | ❌ Pending | Base name for the `DbContext` (suffix `DBContext` will be added automatically)               | `Store`                  |
 | `Namespace`             | ❌ Pending | Root namespace to be used for generated code                                                  | `SampleStore`            |
-| `FoldersStructureModel` | ✅ Set      | Structure model used for organizing the generated codebase                                   | `MODEL_1`                |
+| `FoldersStructureModel` | ✅ Set      | Structure model used for organizing the generated codebase                                   | `MODEL_CUSTOM`                |
 
-> ℹ️ **Note:** Other folder models include `MODEL_2`, `MODEL_3`, and `MODEL_CUSTOM`.
+> ℹ️ **Note:** Other folder models include `MODEL_2`, `MODEL_3`, and `MODEL_1` [see](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Custom-Model-README.md).
 
 #### 📁 Example `RepoGen.json`
 
@@ -96,7 +96,52 @@ Please verify and update the following in the file:
   }
 }
 ```
-### ✅ Step 5: Set-up app folder structure to CUSTOM_MODEL
+### ✅ Step 5: Custmize the model
+
+- Set your required folder structure as you want in `custom_model.json` file in path `SampleStore/RepoGenTool/Structure`
+```json
+
+[
+  {
+    "Name": "Core",
+    "Children": [
+      { "Name": "Entities" }, // For Models
+      { "Name": "Interfaces" }, // For IRepositories
+    ]
+  },
+  {
+    "Name": "Infrastructure",
+    "Children": [
+      { "Name": "Persistence" }, // For DBContext
+      { "Name": "Repositories" } // For Repositories
+      { "Name": "UnitOfWork" } // For UnitOfWork
+    ]
+  },
+    {
+      "Name": "Application",
+      "Children": [
+        { "Name": "Services" }, // For Services
+        { "Name": "DTOs" } // For DTOs
+      ]
+    }
+]
+
+```
+- Map the tool basic file in `structure_mapper.json` file in path `SampleStore/RepoGenTool/Structure`
+```json
+{
+  "RequiredMappings": {
+    "DBContext": "Persistence", // AppDbContext.cs usually resides here
+    "DTOs": "DTOs", // Data Transfer Objects used by use cases
+    "IRepositories": "Interfaces", // Interfaces for repositories
+    "Models": "Entities", // Domain models or entities
+    "Repositories": "Repositories", // Concrete repository implementations
+    "Services": "UseCases", // Business logic, organized by use cases
+    "UnitOfWork": "UnitOfWork" // Unit of Work pattern implementation
+  }
+}
+```
+### ✅ Step 6: Set-up app folder structure to CUSTOM_MODEL
 
 ```bash
 dotnet tool run DEFC.Util.RepoGen structure set
@@ -108,22 +153,13 @@ dotnet tool run DEFC.Util.RepoGen structure set
 ```bash
 dotnet tool run DEFC.Util.RepoGen test db-connection
 ```
-- When need to remove any of mapped stored ptocedures you can use `remove` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen remove --sp sp_DeleteProduct --repo Products
-```
 
-- When need to re-map any of mapped stored ptocedures you can use `re-map` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen re-map --sp sp_DeleteProduct --repo Products
-```
-
-### ✅ Step 6: For ProductCategories table will use CRUD option
+### ✅ Step 7: For ProductCategories table will use CRUD option
 - use `crud` command with table `ProductCategories`: 
 ```bash
 dotnet tool run DEFC.Util.RepoGen crud --tbl ProductCategories --service ProductCategory
 ```
-### ✅ Step 7: For `Products`, `Orders`, `Customers` tables will use Map option
+### ✅ Step 8: For `Products`, `Orders`, `Customers` tables will use Map option
 - use	`add` for creating `Products`,`Customers` and `Orders` Repository:
 
 ```bash
@@ -155,7 +191,7 @@ dotnet tool run DEFC.Util.RepoGen map --sp sp_GetOrderById --repo Orders
 dotnet tool run DEFC.Util.RepoGen map --sp sp_UpdateOrder --repo Orders
 dotnet tool run DEFC.Util.RepoGen map --sp sp_DeleteOrder --repo Orders
 ```
-### ✅ Step 8: For `OrderItems` table will use batch option
+### ✅ Step 9: For `OrderItems` table will use batch option
 - Add batch file called `batch-orderitems`.
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --batch batch-orderitems
@@ -230,7 +266,7 @@ dotnet tool run DEFC.Util.RepoGen batch --file batch-orderitems
 - This will: 
     - Create OrderItems reposatory.
     - Map stored procedures for OrderItems written in `batch-orderitems.json`.
-## ✅ Step 9: Explore the Generated Code & Add required logics and validations
+## ✅ Step 10: Explore the Generated Code & Add required logics and validations
 Look inside the following folders:
 
 - Repositories
@@ -238,7 +274,7 @@ Look inside the following folders:
 - Services
 - DTOs
 - Find the auto-generated ProductsRepository, UnitOfWork, etc.
-##  ✅ Step 10: Configure your application
+##  ✅ Step 11: Configure your application
 This based on your application requirements.
 - Confuger database connection string in `appsettings.json` file.
 ```json

@@ -1,6 +1,6 @@
 # DEFC.Util.RepoGen
 A powerful .NET CLI tool and NuGet package that automates the generation of repositories and unit of work patterns around SQL 
-Server stored procedures, to accelerate clean architecture development.
+Server stored procedures, to accelerate clean architecture development. 
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ Server stored procedures, to accelerate clean architecture development.
 5. [🛠️ Prerequisites](#️-prerequisites)
 6. [📦 Installation](#-installation)
 7. [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
-8. [🔒 Security & Privacy Assurance](#security--privacy-assurance)
+8. [🔒 Security & Privacy Assurance](#-security--privacy-assurance)  
 9. [📁 Folder Structure Models](#-folder-structure-models)
    - [🧱 `MODEL_1` – Default (Clean Architecture Inspired)](#-model_1--default-clean-architecture-inspired)
    - [🧱 `MODEL_2` – Layered Architecture](#-model_2--layered-architecture)
@@ -75,12 +75,8 @@ The tool is designed to work seamlessly within modern .NET environments using cl
 > ⚠️ **Important:** For PostgreSQL or MySQL, consider using EF Core’s model- or code-first patterns instead.
 
 ### ⚙️ .NET Versions
-- ✅ .NET 6
-- ✅ .NET 7
-- ✅ .NET 8
-
-> 💡 **Important:** The tool is compatible with .NET SDK-based projects and uses `dotnet` CLI commands internally.
-
+- ✅ From .NET 6+
+ 
 ### 🧱 Design Patterns Used
 - **Repository Pattern** – abstracts data access and encapsulates business logic interactions.
 - **Unit of Work** – coordinates the writing out of changes and maintains transactional integrity.
@@ -119,7 +115,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 - **ConnectionString**: A valid connection string to your database.
 - **Namespace**: The application namespace used in the generated code.
 - **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or `MODEL_CUSTOM` for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
-- **LoggerCode**: Controls logger generation for command and batch executions.
+- **LoggerCode**: Controls logger generation for Command (Individual CLI operations) & Batch (JSON-scripted multi-step executions).
 
 > 💡 **Important:** The tool automatically appends `DBContext`, `Repository`, and `Service` to the relevant names, so you don’t need to include those suffixes in your configuration.
 ```json
@@ -134,7 +130,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 {
   "Config": {
     "DBConfig": {
-      "SchemaID": "1", // OPTIONAL: Database schema ID (if applicable)
+      "SchemaID": "1", // OPTIONAL: Database schema ID (if not applicable leave it with 1)
       "DBContextName": "YOUR_DBCONTEXTNAME_HERE", // REQUIRED: Base name for DbContext (suffix "DBContext" will be added automatically)
        "ConnectionString": "Server=SERVER_NAME;Database=DATABASE_NAME;User Id=USER_NAME;Password=PASSWORD;TrustServerCertificate=True"
       // REQUIRED: Valid connection string to your database
@@ -148,7 +144,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
       //   - MODEL_CUSTOM (Define your own folder structure to fit your specific project architecture)
       "LoggerCode": "101" // REQUIRED: Logger file generation control
       //   100: No logger
-      //   101: Logger for Command & Batch
+      //   101: Logger for Command (Individual CLI operations) & Batch (JSON-scripted multi-step executions)
       //   102: Logger for Command only
       //   103: Logger for Batch only
     }
@@ -161,6 +157,7 @@ When you first initialize the tool with the following command:
 ```bash
 dotnet tool run DEFC.Util.RepoGen initial
 ```
+
 ## **Security & Privacy Assurance**
 
 We understand the importance of **data privacy** and **security** for developers. RepoGen is designed with your privacy in mind:
@@ -171,7 +168,6 @@ We understand the importance of **data privacy** and **security** for developers
 
 With RepoGen, you can focus on coding and generating repositories without worrying about unauthorized access or data breaches.
 
----
 ## 📁 Folder Structure Models
 
 `DEFC.Util.RepoGen` supports multiple folder structure models that enforce clean, maintainable architectures by default.  
@@ -361,38 +357,38 @@ dotnet tool run DEFC.Util.RepoGen add --crud -f
 ```
 - Add a new repository with unit of work (if not exists):
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --repo REPO_NAME
+dotnet tool run DEFC.Util.RepoGen add --repo <YourRepoName>
 ```
 ### 🔁 6. Stored Procedure Mapping
 - Map a stored procedure to a repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen map --sp STORED_PROCEDURE_NAME --repo REPO_NAME
+dotnet tool run DEFC.Util.RepoGen map --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
 - Remap a stored procedure to a repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen re-map --sp STORED_PROCEDURE_NAME --repo REPO_NAME
+dotnet tool run DEFC.Util.RepoGen re-map --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
 - Remove a mapped stored procedure:
 ```bash
-dotnet tool run DEFC.Util.RepoGen remove --sp STORED_PROCEDURE_NAME --repo REPO_NAME
+dotnet tool run DEFC.Util.RepoGen remove --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
 ### 🧬 7. CRUD
 - Generate CRUD a table:
 ```bash
-dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME
+dotnet tool run DEFC.Util.RepoGen crud --tbl <YourTableName> --service <YourServiceName>
 ```
 - Force regenerate CRUD operations for a table:
 ```bash
-dotnet tool run DEFC.Util.RepoGen crud --tbl TABLE_NAME --service SERVICE_NAME --force
+dotnet tool run DEFC.Util.RepoGen crud --tbl <YourTableName> --service <YourServiceName> --force
 ```
 ### 📄 8. Batch Operations
 - Add a batch file sample:
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --batch FILE_NAME_WITHOUT_EXTENSION
+dotnet tool run DEFC.Util.RepoGen add --batch <YourBatchFileWithoutExtension>_WITHOUT_EXTENSION
 ```
 - Run batch of commends from a JSON file:
 ```bash
-dotnet tool run DEFC.Util.RepoGen batch --file FILE_NAME
+dotnet tool run DEFC.Util.RepoGen batch --file <YourBatchFileWithoutExtension>
 ```
 #### Batch File Sample
 ```json
@@ -426,7 +422,10 @@ dotnet tool run DEFC.Util.RepoGen batch --file FILE_NAME
   ]
 }
 ```
-
+### ❓ Help
+```bash
+dotnet tool run DEFC.Util.RepoGen help
+```
 ## 🐞 Troubleshooting & Error Handling
 This section covers common issues users might encounter while using the tool, along with potential causes and resolutions.
 ### ❌ Error: The option 'XXX' is not valid
@@ -478,7 +477,8 @@ A sample application is available on GitHub to help you get started with `DEFC.U
 
 ### Sample Application
 
-You can find a sample app that demonstrates how to configure and use `DEFC.Util.RepoGen` to generate repositories and unit of work patterns for SQL Server stored procedures.
+You can find a sample app that demonstrates how to configure and use `DEFC.Util.RepoGen` 
+to generate repositories and unit of work patterns for SQL Server stored procedures.
 
 - **Example Usage**: [DEFC.Util.RepoGen Sample App](https://github.com/AminaElsheikh/DEFC.Util.RepoGen)
 
@@ -488,10 +488,11 @@ The sample app includes:
 - **Unit of Work Implementation**: Example of integrating the unit of work pattern with the generated repositories.
 
 Feel free to clone or fork the repository and explore in your own projects!
+
 ## 📝 License
 This project is licensed under the **Elastic License 2.0**.
 
-You are permitted to:
+You are **permitted to**:
 
 - Use the software for any purpose, including commercial use.
 - Run the software as part of your service offering.

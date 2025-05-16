@@ -1,0 +1,30 @@
+
+{
+  //"This file defines the standard project folder structure and required mappings for validation.
+  //"You may add extra folders, but required folders must exist in the hierarchy.
+
+  "Structure": [
+    {
+      "Name": "Core",
+      "Children": [
+        { "Name": "Entities" }, // For Models
+        { "Name": "Interfaces" } // For IRepositories
+      ]
+    },
+    {
+      "Name": "Infrastructure",
+      "Children": [
+        { "Name": "Persistence" }, // For DBContext
+        { "Name": "Repositories" }, // For Repositories
+        { "Name": "UnitOfWork" } // For UnitOfWork
+      ]
+    },
+    {
+      "Name": "Application",
+      "Children": [
+        { "Name": "Services" }, // For Services
+        { "Name": "DTOs" } // For DTOs
+      ]
+    }
+  ]
+}

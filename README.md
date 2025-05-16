@@ -37,7 +37,7 @@ which automates repository and Unit of Work generation using **SQL Server stored
 `Kickstart the Store API with DEFC.Util.RepoGen`
 
 ## 📘 Scenario
-You’ve joined the backend team of an online platform called **SampleStore**.  
+You've joined the backend team of an online platform called **SampleStore**.  
 Your goal is to set up the data access layer using `DEFC.Util.RepoGen`, based on:
 
 - A sample SQL Server database (`SampleStore.sql`) that creates the store database with tables like 
@@ -99,7 +99,7 @@ Please verify and update the following in the file:
 | `Namespace`             | ❌ Pending | Root namespace to be used for generated code                                                  | `SampleStore`            |
 | `FoldersStructureModel` | ✅ Set      | Structure model used for organizing the generated codebase                                   | `MODEL_1`                |
 
-> ℹ️ **Note:** Other folder models include `MODEL_2`, `MODEL_3`, and `MODEL_CUSTOM`.
+> ℹ️ **Note:** Other folder models include `MODEL_2`, `MODEL_3`, and `MODEL_CUSTOM`  [see](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/README.md).
 
 #### 📁 Example `RepoGen.json`
 
@@ -130,15 +130,6 @@ dotnet tool run DEFC.Util.RepoGen structure set
 - To confirm if the connection string in `RepoGen.json` is working:
 ```bash
 dotnet tool run DEFC.Util.RepoGen test db-connection
-```
-- When need to remove any of mapped stored ptocedures you can use `remove` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen remove --sp sp_DeleteProduct --repo Products
-```
-
-- When need to re-map any of mapped stored ptocedures you can use `re-map` command as below:
-```bash 
-dotnet tool run DEFC.Util.RepoGen re-map --sp sp_DeleteProduct --repo Products
 ```
 
 ### ✅ Step 6: For ProductCategories table will use CRUD option
@@ -191,24 +182,24 @@ dotnet tool run DEFC.Util.RepoGen add --batch batch-orderitems
   "Commands": [
     {
       "ID": "add-repo",
-      "Command": "add --repo REPO_NAME"
+      "Command": "add --repo <YourRepoName>"
     },
     {
       "ID": "map-insert",
-      "Command": "map --sp STORED_PROCEDURE_NAME --repo REPO_NAME"
+      "Command": "map --sp <YourStoredProcedureName> --repo <YourRepoName>"
     },
     {
       "ID": "re-map-update",
-      "Command": "re-map --sp STORED_PROCEDURE_NAME --repo REPO_NAME"
+      "Command": "re-map --sp <YourStoredProcedureName> --repo <YourRepoName>"
     },
     {
       "ID": "remove-delete",
-      "Command": "remove --sp STORED_PROCEDURE_NAME --repo REPO_NAME"
+      "Command": "remove --sp <YourStoredProcedureName> --repo <YourRepoName>"
     } 
     ,
     {
       "ID": "curd-table",
-      "Command": "crud --tbl TABLE_NAME --service SERVICE_NAME"
+      "Command": "crud --tbl <YourTableName> --service <YourServiceName>"
     } 
 
   ]
@@ -395,7 +386,7 @@ By completing this task, you will:
 ---
 
 ## 📩 Questions?
-If you’re stuck or want feedback on your solution: Open a [GitHub Issue](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/issues) with your question
+If you're stuck or want feedback on your solution: Open a [GitHub Issue](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/issues) with your question
 
 ---
 

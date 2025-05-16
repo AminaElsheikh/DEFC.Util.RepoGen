@@ -13,13 +13,14 @@ which automates repository and Unit of Work generation using **SQL Server stored
    - [✅ Step 2: Open the API Project](#-step-2-open-the-api-project)
    - [✅ Step 3: Initialize the RepoGen tool](#-step-3-initialize-the-repogen-tool)
    - [✅ Step 4: Review the Configuration](#-step-4-review-the-configuration)
-   - [✅ Step 5: Set-up app folder structure to CUSTOM_MODEL](#-step-5-set-up-app-folder-structure)
-   - [✅ Step 6: Use CRUD option for ProductCategories](#-step-6-for-productcategories-table-will-use-crud-option)
-   - [✅ Step 7: Use Map option for Products, Orders, Customers](#-step-7-for-products-orders-customers-tables-will-use-map-option)
-   - [✅ Step 8: Use Batch option for OrderItems](#-step-8-for-orderitems-table-will-use-batch-option)
-   - [✅ Step 9: Explore the Generated Code](#-step-9-explore-the-generated-code--add-required-logics-and-validations)
-   - [✅ Step 10: Configure your application](#-step-10-configure-your-application)
-   - [✅ Step 11: Wire It to the API](#-step-11-wire-it-to-the-api)
+   - [✅ Step 5: Custmize the model](#-step-5-custmize-the-model)
+   - [✅ Step 6: Set-up app folder structure to CUSTOM_MODEL](#-step-6-set-up-app-folder-structure-to-custom_model)
+   - [✅ Step 7: Use CRUD option for ProductCategories](#-step-6-for-productcategories-table-will-use-crud-option)
+   - [✅ Step 8: Use Map option for Products, Orders, Customers](#-step-7-for-products-orders-customers-tables-will-use-map-option)
+   - [✅ Step 9: Use Batch option for OrderItems](#-step-8-for-orderitems-table-will-use-batch-option)
+   - [✅ Step 10: Explore the Generated Code](#-step-9-explore-the-generated-code--add-required-logics-and-validations)
+   - [✅ Step 11: Configure your application](#-step-10-configure-your-application)
+   - [✅ Step 12: Wire It to the API](#-step-11-wire-it-to-the-api)
 4. [🎯 Learning Objectives](#-learning-objectives)
 5. [📩 Questions?](#-questions)
 6. [🎯 Learning Outcome](#-learning-outcome)
@@ -90,7 +91,7 @@ Please verify and update the following in the file:
     },
     "AppConfig": {
       "Namespace": "SampleStore",
-      "FoldersStructureModel": "MODEL_1",
+      "FoldersStructureModel": "MODEL_CUSTOM",
       "LoggerCode": "101"
     }
   }
@@ -146,6 +147,7 @@ Please verify and update the following in the file:
 ```bash
 dotnet tool run DEFC.Util.RepoGen structure set
 ```
+
 #### ⚠️ Important Notes
 - Make sure no extra spaces in the commands.
 
@@ -299,7 +301,7 @@ builder.Services.AddDbContext<StoreDBContext>(options =>
 ```
 - Add any other configurations needed.
 
-## ✅ Step 11: Wire It to the API
+## ✅ Step 12: Wire It to the API
 - Create a basic controllers called `Products`,`Customers` and `Orders`, etc.
 - Link them to unit of work class.
  ```C#

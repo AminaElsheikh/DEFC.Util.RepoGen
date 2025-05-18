@@ -1,5 +1,4 @@
 ﻿ using Microsoft.AspNetCore.Mvc;
-using SampleStore;
 
 namespace Store.Controllers
 {

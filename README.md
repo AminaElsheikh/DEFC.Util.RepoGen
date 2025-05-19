@@ -448,6 +448,11 @@ dotnet tool run DEFC.Util.RepoGen batch --file <YourBatchFileWithoutExtension>
 ```bash
 dotnet tool run DEFC.Util.RepoGen help
 ```
+### 📦 Version
+```bash
+dotnet tool run DEFC.Util.RepoGen --version
+```
+
 ## 🐞 Troubleshooting & Error Handling
 This section covers common issues users might encounter while using the tool, along with potential causes and resolutions.
 ### ❌ Error: The option 'XXX' is not valid

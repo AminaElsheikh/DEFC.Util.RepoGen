@@ -3,6 +3,17 @@ Welcome to the **SampleStore** onboarding project!
 This task will introduce you to the powerful `.NET CLI` tool 
 [**DEFC.Util.RepoGen**](https://www.nuget.org/packages/DEFC.Util.RepoGen), 
 which automates repository and Unit of Work generation using **SQL Server stored procedures**.
+The tool is structured around seven main folders to organize your code effectively:
+
+- **Repositories**
+- **IRepositories**
+- **DbContext**
+- **UnitOfWork**
+- **Models**
+- **DTOs**
+- **Services**
+
+These folders represent the core components of the generated architecture, helping maintain a clean and scalable project structure.
 
 ## Table of Contents
 

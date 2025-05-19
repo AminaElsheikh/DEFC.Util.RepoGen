@@ -1,6 +1,8 @@
 # DEFC.Util.RepoGen
-A powerful .NET CLI tool and NuGet package that automates the generation of repositories and unit of work patterns around SQL 
-Server stored procedures, to accelerate clean architecture development. 
+Welcome to the **SampleStore** onboarding project!  
+This task will introduce you to the powerful `.NET CLI` tool 
+[**DEFC.Util.RepoGen**](https://www.nuget.org/packages/DEFC.Util.RepoGen), 
+which automates repository and Unit of Work generation using **SQL Server stored procedures**.
 
 ## Table of Contents
 
@@ -114,7 +116,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 - **DBContextName**: The base name for your DBContext. The tool will automatically append "DBContext" to it.
 - **ConnectionString**: A valid connection string to your database.
 - **Namespace**: The application namespace used in the generated code.
-- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or `MODEL_CUSTOM` for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
+- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or [`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md) for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
 - **LoggerCode**: Controls logger generation for Command (Individual CLI operations) & Batch (JSON-scripted multi-step executions).
 
 > 💡 **Important:** The tool automatically appends `DBContext`, `Repository`, and `Service` to the relevant names, so you don’t need to include those suffixes in your configuration.
@@ -209,7 +211,7 @@ Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at 
 
 ### 🧱 `MODEL_CUSTOM` – Custom User-Defined Structure
 
-`MODEL_CUSTOM` allows you to define your **own folder structure** to fit your specific project architecture. 
+[`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md) allows you to define your **own folder structure** to fit your specific project architecture. 
 This model is designed for advanced users or teams that already follow a customized layout and want to integrate `RepoGen` seamlessly.
 
 ✅ **Use When**:
@@ -343,6 +345,13 @@ dotnet tool run DEFC.Util.RepoGen  structure test
 - Add a Unit of Work class (if not already added):
 ```bash
 dotnet tool run DEFC.Util.RepoGen add --uow
+```
+- Force replace the existing Unit of Work class:
+```bash
+dotnet tool run DEFC.Util.RepoGen add --uow --force
+```
+```bash
+dotnet tool run DEFC.Util.RepoGen add --uow -f
 ```
 - Add a generic CRUD repository:
 ```bash
@@ -480,7 +489,7 @@ A sample application is available on GitHub to help you get started with `DEFC.U
 You can find a sample app that demonstrates how to configure and use `DEFC.Util.RepoGen` 
 to generate repositories and unit of work patterns for SQL Server stored procedures.
 
-- **Example Usage**: [DEFC.Util.RepoGen Sample App](https://github.com/AminaElsheikh/DEFC.Util.RepoGen)
+- **Example Usage**: [DEFC.Util.RepoGen Sample App](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore)
 
 The sample app includes:
 - **Basic Setup**: How to configure `RepoGen.json` for your project.

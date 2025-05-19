@@ -197,7 +197,7 @@ Follows a classic **layered architecture** with distinct separation between **Pr
 ✅ **Use When**:
 - You're building scalable, enterprise-level applications with well-defined layers.
 - Collaboration, modular testing, and separation of domain logic are priorities — especially for large teams or multi-service environments.
-
+![MODEL_2](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_2.png)
 ---
 
 ### 🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)
@@ -207,7 +207,7 @@ Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at 
 ✅ **Use When**:
 - You need **maximum decoupling** between business logic and external systems (DB, APIs, etc.).
 - You're embracing **Domain-Driven Design (DDD)**, building **microservices**, or prioritizing **testability and modularity**.
-
+![MODEL_3](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_3.png)
 ---
 
 ### 🧱 `MODEL_CUSTOM` – Custom User-Defined Structure

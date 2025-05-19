@@ -187,6 +187,7 @@ Ideal for small to medium-sized applications that follow the **clean architectur
 - You want rapid setup, a simple layered structure, and maintainable code organization.
 - You're building MVPs, prototypes, or smaller-scale systems where full enterprise layering is unnecessary.
 
+![MODEL_1](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_1.png)
 ---
 
 ### 🧱 `MODEL_2` – Layered Architecture

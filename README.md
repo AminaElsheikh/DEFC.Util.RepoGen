@@ -4,15 +4,15 @@ Server stored procedures, to accelerate clean architecture development.
 
 ## Table of Contents
 
-1. [ℹ️ About](#️-about)
+1. [ℹ️ About](#-about)
 2. [🎯 Objective](#-objective)
 3. [🚀 Benefits](#-benefits)
 4. [🔌 Supported Technologies](#-supported-technologies)
-   - [🗄️ Database Providers](#️-database-providers)
+   - [🗄️ Database Providers](#-database-providers)
    - [⚙️ .NET Versions](#-net-versions)
    - [🧱 Design Patterns Used](#-design-patterns-used)
-   - [🖥️ Recommended Execution Environments](#️-recommended-execution-environments)
-5. [🛠️ Prerequisites](#️-prerequisites)
+   - [🖥️ Recommended Execution Environments](#-recommended-execution-environments)
+5. [🛠️ Prerequisites](#-prerequisites)
 6. [📦 Installation](#-installation)
 7. [🔧 RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
 8. [🔒 Security & Privacy Assurance](#-security--privacy-assurance)  

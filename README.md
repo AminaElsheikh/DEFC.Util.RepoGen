@@ -207,8 +207,12 @@ Ideal for small to medium-sized applications that follow the **clean architectur
 Follows a classic **layered architecture** with distinct separation between **Presentation**, **Application**, **Domain**, and **Infrastructure**.
 
 ✅ **Use When**:
-- You're building scalable, enterprise-level applications with well-defined layers.
-- Collaboration, modular testing, and separation of domain logic are priorities — especially for large teams or multi-service environments.
+
+- You're building a medium to large ASP.NET Core application
+- You want to follow Clean Architecture and SOLID
+- You may later extract microservices or modules
+- You care about separation of concerns, unit testing, and future scalability
+
 ![MODEL_2](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_2.png)
 ---
 

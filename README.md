@@ -221,9 +221,14 @@ Follows a classic **layered architecture** with distinct separation between **Pr
 Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at the core and isolating infrastructure via ports and adapters.
 
 ✅ **Use When**:
-- You need **maximum decoupling** between business logic and external systems (DB, APIs, etc.).
-- You're embracing **Domain-Driven Design (DDD)**, building **microservices**, or prioritizing **testability and modularity**.
+- Large enterprise apps
+- Domain-Driven Design (DDD)
+- Multi-developer teams
+- Apps where external systems (APIs, DBs) may change
+- Apps that require high test coverage and long-term maintainability
+  
 ![MODEL_3](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_3.png)
+
 ---
 
 ### 🧱 `MODEL_CUSTOM` – Custom User-Defined Structure

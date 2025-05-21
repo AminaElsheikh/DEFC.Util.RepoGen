@@ -11,15 +11,6 @@ The tool is structured around seven main folders to organize your code effective
 - **DTOs** – Data transfer objects for client-facing and API-layer interactions.
 - **Services** – Business logic and application service layer implementations.
 
-## 📌 Key Features:
-✔ Auto-generates repositories for stored procedures  
-✔ Supports clean, layered, and hexagonal architectures  
-✔ Reduces boilerplate and enforces consistency  
-✔ CLI-based tool with batch command support  
-✔ SQL Server only (PostgreSQL/MySQL not supported)
-✔ Supports .NET 6/7/8+ 
-
-
 ## Table of Contents
 
 1. [ℹ️ About](#ℹ️-about)

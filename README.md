@@ -3,15 +3,6 @@ DEFC.Util.RepoGen is a powerful NuGet tool designed to streamline the implementa
 .NET applications. By automating the generation of repository classes that interact with **stored procedures (SPs)** in your database, this 
 tool significantly enhances developer productivity while promoting a clean, maintainable architecture.
 
-The tool is structured around seven main folders to organize your code effectively:
-
-- **Repositories** – Concrete implementations for data access operations.
-- **IRepositories** – Interfaces defining repository contracts.
-- **DbContext** – Centralized configuration and connection management.
-- **UnitOfWork** – Coordinates transactional operations across repositories.
-- **Models** – Domain entities mapped to database structures.
-- **DTOs** – Data transfer objects for client-facing and API-layer interactions.
-- **Services** – Business logic and application service layer implementations.
 ## Table of Contents
 
 1. [ℹ️ About](#ℹ️-about)
@@ -53,9 +44,22 @@ The tool is structured around seven main folders to organize your code effective
     - [DEFC.Util.Generator](#defcutilgenerator)
     
 ## ℹ️ About
-**DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate repositories and Unit of Work classes that map to SQL Server stored procedures. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a clean architecture within .NET applications.
+**DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate **repositories** and **Unit of Work** classes 
+that **map** to **SQL Server stored procedures(SP)**. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a 
+clean architecture within .NET applications.
 
-This tool empowers development teams to enforce consistent patterns, improve productivity, and accelerate the creation of scalable applications that interact with databases via stored procedures.
+This tool empowers development teams to enforce consistent patterns, improve productivity, and accelerate the creation of scalable 
+applications that interact with databases via stored procedures.
+
+The tool is structured around seven main folders to organize your code effectively:
+
+- **Repositories** – Concrete implementations for data access operations.
+- **IRepositories** – Interfaces defining repository contracts.
+- **DbContext** – Centralized configuration and connection management.
+- **UnitOfWork** – Coordinates transactional operations across repositories.
+- **Models** – Domain entities mapped to database structures.
+- **DTOs** – Data transfer objects for client-facing and API-layer interactions.
+- **Services** – Business logic and application service layer implementations.
 
 ### Created by
 This tool was created by **Amina El-Sheikh**.

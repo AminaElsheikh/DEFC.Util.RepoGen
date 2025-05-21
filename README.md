@@ -561,6 +561,8 @@ If you encounter any bugs, have suggestions for new features, or need assistance
    - Any error messages or logs
 3. **Feature Requests**: If you'd like to request a new feature or improvement, feel free to create an issue with a description of the functionality you'd like to see.
 
+> It’s helpful if you can also attach an image or screenshot of the issue to provide more context.
+
 ### How to Contribute
 If you're interested in contributing to the project, please follow these guidelines:
 1. **Fork the Repository**: Start by forking the project on GitHub.

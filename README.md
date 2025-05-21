@@ -1,19 +1,13 @@
 # DEFC.Util.RepoGen
-DEFC.Util.RepoGen is a powerful NuGet tool designed to streamline the implementation of the **Repository** and **Unit of Work** design patterns in 
+**DEFC.Util.RepoGen** is a powerful NuGet tool designed to streamline the implementation of the **Repository** and **Unit of Work** design patterns in 
 .NET applications. By automating the generation of repository classes that interact with **stored procedures (SPs)** in your database, this 
 tool significantly enhances developer productivity while promoting a clean, maintainable architecture.
-<details>
-  <summary>Click to expand</summary>
 
-  Your detailed content goes here. This could include:
-  - Long JSON examples
-  - Troubleshooting steps
-  - Batch file formats
-  - Optional sections
+> See RepoGen tool full documentation [here](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/README.md).
 
-</details>
+> See RepoGen tool full practice sample [here](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore).
+
 ## Table of Contents
-
 1. [ℹ️ About](#ℹ️-about)
 2. [🎯 Objective](#-objective)
 3. [🚀 Benefits](#-benefits)
@@ -53,14 +47,14 @@ tool significantly enhances developer productivity while promoting a clean, main
     - [DEFC.Util.Generator](#defcutilgenerator)
     
 ## ℹ️ About
-**DEFC.Util.RepoGen** is a .NET CLI tool and NuGet package that helps developers quickly generate **repositories** and **Unit of Work** classes 
+**DEFC.Util.RepoGen** is one of **DEFC utilities** packages. It is a .NET CLI tool and NuGet package that helps developers quickly generate **repositories** and **Unit of Work** classes 
 that **map** to **SQL Server stored procedures(SP)**. It is designed to automate repetitive tasks, reduce boilerplate code, and maintain a 
 clean architecture within .NET applications.
 
 This tool empowers development teams to enforce consistent patterns, improve productivity, and accelerate the creation of scalable 
 applications that interact with databases via stored procedures.
 
-The tool is structured around seven main folders to organize your code effectively:
+The tool organizes generated code into seven main folders to promote clean architecture and maintainability:
 
 - **Repositories** – Concrete implementations for data access operations.
 - **IRepositories** – Interfaces defining repository contracts.
@@ -81,7 +75,7 @@ NuGet tool that implements the **repository** and **unit of work** patterns by a
 - **Enforces Clean Architecture**: The separation of concerns between database operations (in the repository) and business logic (in the service) is maintained.
 - **Promotes Maintainability**: When working with stored procedures, the tool keeps the codebase more organized and easier to maintain, as the SP logic is encapsulated in the repository.
 - **Speeds Up Development**: Instead of writing repetitive code, developers can focus more on writing business logic by using the generated repositories.
- 
+
 ## 🔌 Supported Technologies
 The tool is designed to work seamlessly within modern .NET environments using clean architecture principles.
 
@@ -183,13 +177,13 @@ dotnet tool run RepoGen initial
 
 ## **Security & Privacy Assurance**
 
-We understand the importance of **data privacy** and **security** for developers. RepoGen is designed with your privacy in mind:
+We understand the importance of **data privacy** and **security** for developers. DEFC.Util.RepoGen is designed with your privacy in mind:
 
 - **No external connections**: RepoGen operates **entirely offline**. Your code stays on your local machine, and no data is sent to any external servers or third-party services.
 - **No online links or tracking**: RepoGen does **not** rely on any online APIs or links that could potentially compromise the safety of your code. Your repository data stays private and under your control.
 - **Local execution**: All processing is done locally, ensuring that your code is not exposed to the internet or any external databases.
 
-With RepoGen, you can focus on coding and generating repositories without worrying about unauthorized access or data breaches.
+With DEFC.Util.RepoGen, you can focus on coding and generating repositories without worrying about unauthorized access or data breaches.
 
 ## 📁 Folder Structure Models
 
@@ -207,7 +201,6 @@ Ideal for small to medium-sized applications that follow the **clean architectur
 ✅ **Use When**:
 - You want rapid setup, a simple layered structure, and maintainable code organization.
 - You're building MVPs, prototypes, or smaller-scale systems where full enterprise layering is unnecessary.
-
 ![MODEL_1](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_1.png)
 ---
 
@@ -223,6 +216,7 @@ Follows a classic **layered architecture** with distinct separation between **Pr
 - You care about separation of concerns, unit testing, and future scalability
 
 ![MODEL_2](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_2.png)
+
 ---
 
 ### 🧱 `MODEL_3` – Hexagonal Architecture (Ports & Adapters)
@@ -230,12 +224,13 @@ Follows a classic **layered architecture** with distinct separation between **Pr
 Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at the core and isolating infrastructure via ports and adapters.
 
 ✅ **Use When**:
+
 - Large enterprise apps
 - Domain-Driven Design (DDD)
 - Multi-developer teams
 - Apps where external systems (APIs, DBs) may change
 - Apps that require high test coverage and long-term maintainability
-  
+
 ![MODEL_3](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/MODEL_3.png)
 
 ---
@@ -413,7 +408,7 @@ dotnet tool run RepoGen re-map --sp <YourStoredProcedureName> --repo <YourRepoNa
 dotnet tool run RepoGen remove --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
 ### 🧬 7. CRUD
-- Generate CRUD a table:
+- Generate CRUD operations for a table:
 ```bash
 dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName>
 ```
@@ -426,7 +421,7 @@ dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName> -
 ```bash
 dotnet tool run RepoGen add --batch <YourBatchFileWithoutExtension>_WITHOUT_EXTENSION
 ```
-- Run batch of commends from a JSON file:
+- Run batch of commands from a JSON file:
 ```bash
 dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
 ```
@@ -472,6 +467,9 @@ dotnet tool run RepoGen --version
 ```
 
 ## 🐞 Troubleshooting & Error Handling
+<details>
+  <summary>Click to expand</summary>
+ 
 This section covers common issues users might encounter while using the tool, along with potential causes and resolutions.
 ### ❌ Error: The option 'XXX' is not valid
 **Cause:** This error typically occurs when an invalid option is passed to the CLI tool, or the command is not recognized.
@@ -510,6 +508,8 @@ This section covers common issues users might encounter while using the tool, al
 - Open **SQL Server Configuration Manager**, then ensure **TCP/IP** is enabled and configured correctly.
 **7- Test network connectivity:**
 - Use **ping** or **telnet** to test network connectivity between the application and the SQL Server.
+</details>
+
 
 ## 🔔 Important Notes
 - **Do not change the folder structure** generated by the tool. It’s designed to support consistency, clean architecture, and team alignment.
@@ -572,6 +572,7 @@ If you encounter any bugs, have suggestions for new features, or need assistance
 
 > It’s helpful if you can also attach an image or screenshot of the issue to provide more context.
 
+
 ### How to Contribute
 If you're interested in contributing to the project, please follow these guidelines:
 1. **Fork the Repository**: Start by forking the project on GitHub.
@@ -586,11 +587,11 @@ We welcome contributions and feedback to improve the tool!
 ### DEFC.Util.DataValidation
 - For using: [Nuget](https://www.nuget.org/packages/DEFC.Util.DataValidation)
 - [GitHub Sample](https://github.com/AminaElsheikh/DEFC.Util.DataValidationExamples)
-- Read: [Dev.to](https://dev.to/aminaelsheikh/data-validation-nuget-package-kco)
+- [Read on Dev.to](https://dev.to/aminaelsheikh/data-validation-nuget-package-kco)
 ### DEFC.Util.Generator
 - For using: [Nuget](https://www.nuget.org/packages/DEFC.Util.Generator)
 - [GitHub Sample](https://github.com/AminaElsheikh/DEFC.Util.GeneratorExamples)
-- Read: [Dev.to](https://dev.to/aminaelsheikh/data-generator-nuget-package-1fij)
+- [Read on Dev.to](https://dev.to/aminaelsheikh/data-generator-nuget-package-1fij)
 
 
 Your support is greatly appreciated and helps keep this project active and maintained! 🙏

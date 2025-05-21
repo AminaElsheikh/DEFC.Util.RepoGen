@@ -16,8 +16,8 @@ The tool is structured around seven main folders to organize your code effective
 ✔ Supports clean, layered, and hexagonal architectures  
 ✔ Reduces boilerplate and enforces consistency  
 ✔ CLI-based tool with batch command support  
-✔ Supports .NET 6/7/8+ 
 ✔ SQL Server only (PostgreSQL/MySQL not supported)
+✔ Supports .NET 6/7/8+ 
 
 ## Table of Contents
 

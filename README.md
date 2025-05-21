@@ -19,6 +19,7 @@ The tool is structured around seven main folders to organize your code effective
 ✔ SQL Server only (PostgreSQL/MySQL not supported)
 ✔ Supports .NET 6/7/8+ 
 
+
 ## Table of Contents
 
 1. [ℹ️ About](#ℹ️-about)

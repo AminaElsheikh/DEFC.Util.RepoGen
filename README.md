@@ -2,7 +2,16 @@
 DEFC.Util.RepoGen is a powerful NuGet tool designed to streamline the implementation of the **Repository** and **Unit of Work** design patterns in 
 .NET applications. By automating the generation of repository classes that interact with **stored procedures (SPs)** in your database, this 
 tool significantly enhances developer productivity while promoting a clean, maintainable architecture.
+<details>
+  <summary>Click to expand</summary>
 
+  Your detailed content goes here. This could include:
+  - Long JSON examples
+  - Troubleshooting steps
+  - Batch file formats
+  - Optional sections
+
+</details>
 ## Table of Contents
 
 1. [ℹ️ About](#ℹ️-about)

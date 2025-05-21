@@ -169,7 +169,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 When you first initialize the tool with the following command:
 
 ```bash
-dotnet tool run DEFC.Util.RepoGen initial
+dotnet tool run RepoGen initial
 ```
 
 ## **Security & Privacy Assurance**
@@ -305,7 +305,7 @@ To use this model, update your `RepoGen.json` configuration file:
 ```
 Then, apply your custom folder structure by running:
 ```bash
-dotnet tool run DEFC.Util.RepoGen structure set
+dotnet tool run RepoGen structure set
 
 ```
 ### 🛠️ Switching Folder Structure
@@ -331,95 +331,95 @@ To apply a specific structure, update your `RepoGen.json` configuration:
 > 💡 **Important:** If you're switching from one structure model to another, manually delete any previously generated folders to avoid conflicts,
  then run the structure setup command again.
 ```bash
-dotnet tool run DEFC.Util.RepoGen structure set
+dotnet tool run RepoGen structure set
 ```
 
 ## 🏁 Usage Guide
 ### 📁 1. Initialization
 - Initialize the RepoGen tool
 ```bash
-dotnet tool run DEFC.Util.RepoGen initial
+dotnet tool run RepoGen initial
 ```
 - Force re-initialize the tool (overwrites existing files):
 ```bash
-dotnet tool run DEFC.Util.RepoGen initial --force
+dotnet tool run RepoGen initial --force
 ```
 ```bash
-dotnet tool run DEFC.Util.RepoGen initial -f
+dotnet tool run RepoGen initial -f
 ```
 ### 🔧 2. Configuration
  Customize the 'RepoGen.json' file with your specific data and save the changes.  See [RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
 ### 🗂️ 3. Structure Setup
 - Generate the repository pattern folder structure:
 ```bash
-dotnet tool run DEFC.Util.RepoGen structure set
+dotnet tool run RepoGen structure set
 ```
 ### 🧪 4. Testing 
 - To confirm if the connection string in `RepoGen.json` is working:
 ```bash
-dotnet tool run DEFC.Util.RepoGen test db-connection
+dotnet tool run RepoGen test db-connection
 ```
 - Test the structure model:
 ```bash
-dotnet tool run DEFC.Util.RepoGen  structure test
+dotnet tool run RepoGen  structure test
 ```
 ### 🧱 5. Repository and Unit of Work Generation
 - Add a Unit of Work class (if not already added):
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --uow
+dotnet tool run RepoGen add --uow
 ```
 - Force replace the existing Unit of Work class:
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --uow --force
+dotnet tool run RepoGen add --uow --force
 ```
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --uow -f
+dotnet tool run RepoGen add --uow -f
 ```
 - Add a generic CRUD repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --crud
+dotnet tool run RepoGen add --crud
 ```
 - Force replace the existing CRUD repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --crud --force
+dotnet tool run RepoGen add --crud --force
 ```
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --crud -f
+dotnet tool run RepoGen add --crud -f
 ```
 - Add a new repository with unit of work (if not exists):
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --repo <YourRepoName>
+dotnet tool run RepoGen add --repo <YourRepoName>
 ```
 ### 🔁 6. Stored Procedure Mapping
 - Map a stored procedure to a repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen map --sp <YourStoredProcedureName> --repo <YourRepoName>
+dotnet tool run RepoGen map --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
 - Remap a stored procedure to a repository:
 ```bash
-dotnet tool run DEFC.Util.RepoGen re-map --sp <YourStoredProcedureName> --repo <YourRepoName>
+dotnet tool run RepoGen re-map --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
 - Remove a mapped stored procedure:
 ```bash
-dotnet tool run DEFC.Util.RepoGen remove --sp <YourStoredProcedureName> --repo <YourRepoName>
+dotnet tool run RepoGen remove --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
 ### 🧬 7. CRUD
 - Generate CRUD a table:
 ```bash
-dotnet tool run DEFC.Util.RepoGen crud --tbl <YourTableName> --service <YourServiceName>
+dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName>
 ```
 - Force regenerate CRUD operations for a table:
 ```bash
-dotnet tool run DEFC.Util.RepoGen crud --tbl <YourTableName> --service <YourServiceName> --force
+dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName> --force
 ```
 ### 📄 8. Batch Operations
 - Add a batch file sample:
 ```bash
-dotnet tool run DEFC.Util.RepoGen add --batch <YourBatchFileWithoutExtension>_WITHOUT_EXTENSION
+dotnet tool run RepoGen add --batch <YourBatchFileWithoutExtension>_WITHOUT_EXTENSION
 ```
 - Run batch of commends from a JSON file:
 ```bash
-dotnet tool run DEFC.Util.RepoGen batch --file <YourBatchFileWithoutExtension>
+dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
 ```
 #### Batch File Sample
 ```json
@@ -455,11 +455,11 @@ dotnet tool run DEFC.Util.RepoGen batch --file <YourBatchFileWithoutExtension>
 ```
 ### ❓ Help
 ```bash
-dotnet tool run DEFC.Util.RepoGen help
+dotnet tool run RepoGen help
 ```
 ### 📦 Version
 ```bash
-dotnet tool run DEFC.Util.RepoGen --version
+dotnet tool run RepoGen --version
 ```
 
 ## 🐞 Troubleshooting & Error Handling
@@ -468,12 +468,12 @@ This section covers common issues users might encounter while using the tool, al
 **Cause:** This error typically occurs when an invalid option is passed to the CLI tool, or the command is not recognized.
 **Solution:** 
 - Make sure you are using the Write option.
-- Usage: dotnet tool run DEFC.Util.RepoGen help or See [Usage Guide](#-usage-guide) section.
+- Usage: dotnet tool run RepoGen help or See [Usage Guide](#-usage-guide) section.
 ### ❌ Error: Invalid command. Please provide valid arguments.
 **Cause:** This error typically occurs when an invalid command is passed to the CLI tool, or the command is not recognized.
 **Solution:**
 - Make sure you are using the Write command.
-- Usage: dotnet tool run DEFC.Util.RepoGen help or See [Usage Guide](#-usage-guide) section.
+- Usage: dotnet tool run RepoGen help or See [Usage Guide](#-usage-guide) section.
 
 ### ❌ Error: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
 **Cause:**

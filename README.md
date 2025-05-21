@@ -12,12 +12,11 @@ The tool is structured around seven main folders to organize your code effective
 - **Services** – Business logic and application service layer implementations.
 
 ## 📌 Key Features:
----------------
 ✔ Auto-generates repositories for stored procedures  
 ✔ Supports clean, layered, and hexagonal architectures  
 ✔ Reduces boilerplate and enforces consistency  
 ✔ CLI-based tool with batch command support  
-✔ Supports .NET 6/7/8+
+✔ Supports .NET 6/7/8+ 
 ✔ SQL Server only (PostgreSQL/MySQL not supported)
 
 ## Table of Contents

@@ -1,20 +1,24 @@
 # DEFC.Util.RepoGen
-Welcome to the **SampleStore** onboarding project!  
-This task will introduce you to the powerful `.NET CLI` tool 
-[**DEFC.Util.RepoGen**](https://www.nuget.org/packages/DEFC.Util.RepoGen), 
-which automates repository and Unit of Work generation using **SQL Server stored procedures**.
-
+A powerful .NET CLI and NuGet package that auto-generates **repository** and **unit of work** patterns from 
+SQL **Server stored procedures** – designed to speed up clean architecture development.
 The tool is structured around seven main folders to organize your code effectively:
 
-- **Repositories**
-- **IRepositories**
-- **DbContext**
-- **UnitOfWork**
-- **Models**
-- **DTOs**
-- **Services**
+- **Repositories** – Concrete implementations for data access operations.
+- **IRepositories** – Interfaces defining repository contracts.
+- **DbContext** – Centralized configuration and connection management.
+- **UnitOfWork** – Coordinates transactional operations across repositories.
+- **Models** – Domain entities mapped to database structures.
+- **DTOs** – Data transfer objects for client-facing and API-layer interactions.
+- **Services** – Business logic and application service layer implementations.
 
-These folders represent the core components of the generated architecture, helping maintain a clean and scalable project structure.
+## 📌 Key Features:
+---------------
+✔ Auto-generates repositories for stored procedures  
+✔ Supports clean, layered, and hexagonal architectures  
+✔ Reduces boilerplate and enforces consistency  
+✔ CLI-based tool with batch command support  
+✔ Supports .NET 6/7/8+
+✔ SQL Server only (PostgreSQL/MySQL not supported)
 
 ## Table of Contents
 

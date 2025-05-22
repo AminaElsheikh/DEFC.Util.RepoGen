@@ -44,6 +44,7 @@ Yes, under the [Elastic License 2.0](https://www.elastic.co/licensing/elastic-li
 
 ### 🔹 Can I define my own folder structure?
 Yes. Use `MODEL_CUSTOM` and configure `custom_model.json` and `structure_mapper.json`.
+A step by step paractice sample [Here →](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md)
 
 ---
 
@@ -77,7 +78,7 @@ dotnet tool run RepoGen batch --file <filename>
 - Validate the connection string
 - Enable remote access and TCP/IP in SQL Server Configuration Manager
 - Use dotnet tool run RepoGen test db-connection to test
-
+See DB connectio troubleshooting[Here →](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/README.md#-troubleshooting--error-handling)
 ---
 
 ### 🔹 How do I regenerate a repository or CRUD if it already exists?
@@ -87,18 +88,3 @@ dotnet tool run RepoGen add --repo OrderItems --force
 ```
 
 
-## 🐞 Issues
-If you encounter any bugs, have suggestions for new features, or need assistance with the tool, please open an issue in the GitHub repository.
-
-### How to Report an Issue
-1. **Check Existing Issues**: Before creating a new issue, please search through the [existing issues](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/issues) to see if your problem or question has already been addressed.
-2. **Provide Detailed Information**: When creating a new issue, provide as much detail as possible. Include information like:
-   - The version of the tool you're using
-   - A description of the problem or feature request
-   - Steps to reproduce the issue (if applicable)
-   - Any error messages or logs
-3. **Feature Requests**: If you'd like to request a new feature or improvement, feel free to create an issue with a description of the functionality you'd like to see.
-
-> It’s helpful if you can also attach an image or screenshot of the issue to provide more context.
-
-Your support is greatly appreciated and helps keep this project active and maintained! 🙏

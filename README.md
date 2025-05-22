@@ -41,6 +41,7 @@ tool significantly enhances developer productivity while promoting a clean, main
 17. [📦 Other Nugets](#-other-nugets)
     - [DEFC.Util.DataValidation](#defcutildatavalidation)
     - [DEFC.Util.Generator](#defcutilgenerator)
+18. [❓ FAQ](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/FAQ.md)
     
 ## ℹ️ About
 **DEFC.Util.RepoGen** is one of **DEFC utilities** packages. It is a .NET CLI tool and NuGet package that helps developers quickly generate **repositories** and **Unit of Work** classes 
@@ -179,7 +180,7 @@ We understand the importance of **data privacy** and **security** for developers
 - **No online links or tracking**: RepoGen does **not** rely on any online APIs or links that could potentially compromise the safety of your code. Your repository data stays private and under your control.
 - **Local execution**: All processing is done locally, ensuring that your code is not exposed to the internet or any external databases.
 
-With DEFC.Util.RepoGen, you can focus on coding and generating repositories without worrying about unauthorized access or data breaches.
+With `DEFC.Util.RepoGen`, you can focus on coding and generating repositories without worrying about unauthorized access or data breaches.
 
 ## 📁 Folder Structure Models
 
@@ -520,7 +521,10 @@ A sample application is available on GitHub to help you get started with `DEFC.U
 You can find a sample app that demonstrates how to configure and use `DEFC.Util.RepoGen` 
 to generate repositories and unit of work patterns for SQL Server stored procedures.
 
-- **Example Usage**: [DEFC.Util.RepoGen Sample App](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore)
+- **Example Usage**: 
+> See the [Step-by-step practice sample guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore)
+
+> See the [Step-by-step practice sample with MODEL_CUSOM  guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md)
 
 The sample app includes:
 - **Basic Setup**: How to configure `RepoGen.json` for your project.

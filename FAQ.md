@@ -101,3 +101,4 @@ If you encounter any bugs, have suggestions for new features, or need assistance
 
 > It’s helpful if you can also attach an image or screenshot of the issue to provide more context.
 
+Your support is greatly appreciated and helps keep this project active and maintained! 🙏

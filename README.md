@@ -369,24 +369,11 @@ dotnet tool run RepoGen  structure test
 ```bash
 dotnet tool run RepoGen add --uow
 ```
-- Force replace the existing Unit of Work class:
-```bash
-dotnet tool run RepoGen add --uow --force
-```
-```bash
-dotnet tool run RepoGen add --uow -f
-```
 - Add a generic CRUD repository:
 ```bash
 dotnet tool run RepoGen add --crud
 ```
-- Force replace the existing CRUD repository:
-```bash
-dotnet tool run RepoGen add --crud --force
-```
-```bash
-dotnet tool run RepoGen add --crud -f
-```
+
 - Add a new repository with unit of work (if not exists):
 ```bash
 dotnet tool run RepoGen add --repo <YourRepoName>
@@ -422,6 +409,18 @@ dotnet tool run RepoGen add --batch <YourBatchFileWithoutExtension>_WITHOUT_EXTE
 ```bash
 dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
 ```
+
+### ♻️ 9. Reset
+
+* Reset exists Unit of Work class:
+```bash
+dotnet tool run RepoGen reset --uow
+```
+* Reset exists generic CRUD repository:
+```bash
+dotnet tool run RepoGen reset --crud
+```
+
 #### Batch File Sample
 ```json
 {

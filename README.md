@@ -29,7 +29,8 @@ tool significantly enhances developer productivity while promoting a clean, main
    - [🧱 5. Repository and Unit of Work Generation](#-5-repository-and-unit-of-work-generation)
    - [🔁 6. Stored Procedure Mapping](#-6-stored-procedure-mapping)
    - [🧬 7. CRUD](#-7-crud)
-   - [📄 8. Batch Operations](#-8-batch-operations)
+   - [📄 8. Reset](#-8-reset)
+   - [📄 9. Batch Operations](#-9-batch-operations)
 11. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
 12. [🔔 Important Notes](#-important-notes)
 13. [💡 Example Usage](#-example-usage)
@@ -400,17 +401,7 @@ dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName>
 ```bash
 dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName> --force
 ```
-### 📄 8. Batch Operations
-- Add a batch file sample:
-```bash
-dotnet tool run RepoGen add --batch <YourBatchFileWithoutExtension>_WITHOUT_EXTENSION
-```
-- Run batch of commands from a JSON file:
-```bash
-dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
-```
-
-### ♻️ 9. Reset
+### ♻️ 8. Reset
 
 * Reset exists Unit of Work class:
 ```bash
@@ -419,6 +410,15 @@ dotnet tool run RepoGen reset --uow
 * Reset exists generic CRUD repository:
 ```bash
 dotnet tool run RepoGen reset --crud
+```
+### 📄 9. Batch Operations
+- Add a batch file sample:
+```bash
+dotnet tool run RepoGen add --batch <YourBatchFileWithoutExtension>_WITHOUT_EXTENSION
+```
+- Run batch of commands from a JSON file:
+```bash
+dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
 ```
 
 #### Batch File Sample

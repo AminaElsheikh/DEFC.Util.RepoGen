@@ -1,7 +1,7 @@
 # DEFC.Util.RepoGen
-**DEFC.Util.RepoGen** is a powerful NuGet tool designed to streamline the implementation of the **Repository** and **Unit of Work** design patterns in 
-.NET applications. By automating the generation of repository classes that interact with **stored procedures (SPs)** in your database, this 
-tool significantly enhances developer productivity while promoting a clean, maintainable architecture.
+A powerful .NET CLI and NuGet tool for automating the implementation of the **Repository** and **Unit of Work** design patterns 
+using **SQL Server stored procedures** with the ability to CRUD **SQL Server stored tables** in **Services**.
+
  
 ## Table of Contents
 1. [ℹ️ About](#ℹ️-about)
@@ -31,18 +31,19 @@ tool significantly enhances developer productivity while promoting a clean, main
    - [🧬 7. CRUD](#-7-crud)
    - [📄 8. Reset](#️-8-reset)
    - [📄 9. Batch Operations](#-9-batch-operations)
-11. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
-12. [🔔 Important Notes](#-important-notes)
-13. [💡 Example Usage](#-example-usage)
-14. [📝 License](#-license)
-15. [📞 Contact](#-contact)
-16. [🐞 Issues](#-issues)
+11. [RepoGen CLI Commands Table](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/RepoGenCLICommandsTable.md)
+12. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
+13. [🔔 Important Notes](#-important-notes)
+14. [💡 Example Usage](#-example-usage)
+15. [📝 License](#-license)
+16. [📞 Contact](#-contact)
+17. [🐞 Issues](#-issues)
     - [How to Report an Issue](#how-to-report-an-issue)
     - [How to Contribute](#how-to-contribute)
-17. [📦 Other Nugets](#-other-nugets)
+18. [📦 Other Nugets](#-other-nugets)
     - [DEFC.Util.DataValidation](#defcutildatavalidation)
     - [DEFC.Util.Generator](#defcutilgenerator)
-18. [❓ FAQ](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/FAQ.md)
+19. [❓ FAQ](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/FAQ.md)
     
 ## ℹ️ About
 **DEFC.Util.RepoGen** is one of **DEFC utilities** packages. It is a .NET CLI tool and NuGet package that helps developers quickly generate **repositories** and **Unit of Work** classes 
@@ -61,9 +62,6 @@ The tool organizes generated code into seven main folders to promote clean archi
 - **Models** – Domain entities mapped to database structures.
 - **DTOs** – Data transfer objects for client-facing and API-layer interactions.
 - **Services** – Business logic and application service layer implementations.
-
-### Created by
-This tool was created by **Amina El-Sheikh**.
 
 ## 🎯 Objective
 NuGet tool that implements the **repository** and **unit of work** patterns by automating the creation of repositories mapped to database **stored procedures (SPs)**. This enhances developer productivity and helps maintain clean architecture in .NET applications.
@@ -134,38 +132,28 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 
 > 💡 **Important:** The tool automatically appends `DBContext`, `Repository`, and `Service` to the relevant names, so you don’t need to include those suffixes in your configuration.
 ```json
-
-//================================================================================
-// Notes:
-// - The word "DBContext" will be dynamically appended to the DBContextName.
-// - The word "Repository" will be dynamically appended to the Repository Name.
-// - The word "Service" will be dynamically appended to the Service Name.
-//================================================================================
-
 {
   "Config": {
     "DBConfig": {
-      "SchemaID": "1", // OPTIONAL: Database schema ID (if not applicable leave it with 1)
-      "DBContextName": "YOUR_DBCONTEXTNAME_HERE", // REQUIRED: Base name for DbContext (suffix "DBContext" will be added automatically)
-       "ConnectionString": "Server=SERVER_NAME;Database=DATABASE_NAME;User Id=USER_NAME;Password=PASSWORD;TrustServerCertificate=True"
-      // REQUIRED: Valid connection string to your database
+      "SchemaID": "1",
+      "DBContextName": "YourDbContext",
+      "ConnectionString": "Server=SERVER_NAME;Database=DATABASE_NAME;User Id=USER_NAME;Password=PASSWORD;TrustServerCertificate=True"
     },
     "AppConfig": {
-      "Namespace": "YOUR_NAMESPACE_HERE", // REQUIRED: Base namespace for generated code
-      "FoldersStructureModel": "MODEL_1", // REQUIRED: Folder structure
-      //   MODEL_1 (Default)
-      //   MODEL_2 (Layered)
-      //   MODEL_3 (Hexagonal/Ports & Adapters)
-      //   - MODEL_CUSTOM (Define your own folder structure to fit your specific project architecture)
-      "LoggerCode": "101" // REQUIRED: Logger file generation control
-      //   100: No logger
-      //   101: Logger for Command (Individual CLI operations) & Batch (JSON-scripted multi-step executions)
-      //   102: Logger for Command only
-      //   103: Logger for Batch only
+      "Namespace": "Your.Namespace",
+      "FoldersStructureModel": "MODEL_1",
+      "LoggerCode": "101"
     }
   }
 }
 ```
+### 📌 Supported LoggerCode values:
+
+- `100`: No logger
+- `101`: Logger for both Command & Batch
+- `102`: Command only
+- `103`: Batch only
+
 ### Dynamic Creation of `RepoGen.json`
 When you first initialize the tool with the following command:
 

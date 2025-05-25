@@ -101,8 +101,8 @@ The tool is designed to work seamlessly within modern .NET environments using cl
 ### 🖥️ Recommended Execution Environments
 You can run the tool using any of the following:
 
-- **Developer PowerShell for Visual Studio** *(recommended)* — provides better visualization and output formatting.
-- **.NET CLI** from terminal or command prompt *(recommended)* — provides better visualization and output formatting.
+- **Developer PowerShell for Visual Studio** *(`recommended`)* — provides better visualization and output formatting.
+- **.NET CLI** from terminal or command prompt *(`recommended`)* — provides better visualization and output formatting.
 - **Package Manager Console** in Visual Studio.
 
 > 💡 **Important:** For best experience and readability, use **Developer PowerShell** or **.NET CLI**.

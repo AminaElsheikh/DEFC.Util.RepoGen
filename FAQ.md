@@ -87,4 +87,15 @@ Use the --force flag:
 dotnet tool run RepoGen add --repo OrderItems --force
 ```
 
+### 🔹 why powershell or cli is better?
+You can run the tool using any of the following:
+
+- **Developer PowerShell for Visual Studio** *(`recommended`)* — provides better visualization and output formatting.
+- **.NET CLI** from terminal or command prompt *(`recommended`)* — provides better visualization and output formatting.
+- **Package Manager Console** in Visual Studio.
+
+> 💡 **Important:** For best experience and readability, use **Developer PowerShell** or **.NET CLI**.
+![PS](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/PS.png)
+
+---
 

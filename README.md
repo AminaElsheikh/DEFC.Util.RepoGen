@@ -106,7 +106,7 @@ You can run the tool using any of the following:
 - **Package Manager Console** in Visual Studio.
 
 > 💡 **Important:** For best experience and readability, use **Developer PowerShell** or **.NET CLI**.
-
+![PS](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/CLi.png)
 
 ## 🛠️ Prerequisites
 - Install the following NuGet packages:

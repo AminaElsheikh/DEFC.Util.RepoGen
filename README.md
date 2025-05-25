@@ -29,7 +29,7 @@ tool significantly enhances developer productivity while promoting a clean, main
    - [🧱 5. Repository and Unit of Work Generation](#-5-repository-and-unit-of-work-generation)
    - [🔁 6. Stored Procedure Mapping](#-6-stored-procedure-mapping)
    - [🧬 7. CRUD](#-7-crud)
-   - [📄 8. Reset](#-8-reset)
+   - [📄 8. Reset](#️-8-reset)
    - [📄 9. Batch Operations](#-9-batch-operations)
 11. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
 12. [🔔 Important Notes](#-important-notes)

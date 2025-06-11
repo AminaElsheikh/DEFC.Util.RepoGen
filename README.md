@@ -2,7 +2,10 @@
 A powerful .NET CLI and NuGet tool for automating the implementation of the **Repository** and **Unit of Work** design patterns 
 using **SQL Server stored procedures** with the ability to CRUD **SQL Server stored tables** in **Services**.
 
- 
+![NuGet](https://img.shields.io/nuget/v/DEFC.Util.RepoGen?label=NuGet&style=flat-square)
+![License](https://img.shields.io/badge/license-Elastic%202.0-blue.svg?style=flat-square)
+![.NET](https://img.shields.io/badge/.NET-6+-blue?style=flat-square)
+
 ## Table of Contents
 1. [ℹ️ About](#ℹ️-about)
 2. [🎯 Objective](#-objective)
@@ -31,19 +34,20 @@ using **SQL Server stored procedures** with the ability to CRUD **SQL Server sto
    - [🧬 7. CRUD](#-7-crud)
    - [📄 8. Reset](#️-8-reset)
    - [📄 9. Batch Operations](#-9-batch-operations)
-11. [RepoGen CLI Commands Table](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/RepoGenCLICommandsTable.md)
-12. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
-13. [🔔 Important Notes](#-important-notes)
-14. [💡 Example Usage](#-example-usage)
-15. [📝 License](#-license)
-16. [📞 Contact](#-contact)
-17. [🐞 Issues](#-issues)
+11. [RepoGen CLI Commands Table](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/RepoGen-CLI-Commands-Table)
+12. [RepoGen CLI Shorthands Table](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/RepoGen-CLI-Shorthands-Table)
+13. [🐞 Troubleshooting & Error Handling](#-troubleshooting--error-handling)
+14. [🔔 Important Notes](#-important-notes)
+15. [💡 Example Usage](#-example-usage)
+16. [📝 License](#-license)
+17. [📞 Contact](#-contact)
+18. [🐞 Issues](#-issues)
     - [How to Report an Issue](#how-to-report-an-issue)
     - [How to Contribute](#how-to-contribute)
-18. [📦 Other Nugets](#-other-nugets)
+19. [📦 Other Nugets](#-other-nugets)
     - [DEFC.Util.DataValidation](#defcutildatavalidation)
     - [DEFC.Util.Generator](#defcutilgenerator)
-19. [❓ FAQ](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/FAQ.md)
+20. [❓ FAQ](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/FAQ)
     
 ## ℹ️ About
 **DEFC.Util.RepoGen** is one of **DEFC utilities** packages. It is a .NET CLI tool and NuGet package that helps developers quickly generate **repositories** and **Unit of Work** classes 
@@ -106,7 +110,7 @@ You can run the tool using any of the following:
 - **Package Manager Console** in Visual Studio.
 
 > 💡 **Important:** For best experience and readability, use **Developer PowerShell** or **.NET CLI**.
-![PS](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/PS.png)
+![PS](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/blob/main/Img/CLI.png)
 
 ## 🛠️ Prerequisites
 - Install the following NuGet packages:
@@ -129,6 +133,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 - **Namespace**: The application namespace used in the generated code.
 - **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or [`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md) for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
 - **LoggerCode**: Controls logger generation for Command (Individual CLI operations) & Batch (JSON-scripted multi-step executions).
+- **Suffixes**: Controls Suffixes for model and entity classes.
 
 > 💡 **Important:** The tool automatically appends `DBContext`, `Repository`, and `Service` to the relevant names, so you don’t need to include those suffixes in your configuration.
 ```json
@@ -136,13 +141,18 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
   "Config": {
     "DBConfig": {
       "SchemaID": "1",
-      "DBContextName": "YourDbContext",
+      "DBContextName": "YOUR_DBCONTEXTNAME_HERE",
       "ConnectionString": "Server=SERVER_NAME;Database=DATABASE_NAME;User Id=USER_NAME;Password=PASSWORD;TrustServerCertificate=True"
     },
     "AppConfig": {
-      "Namespace": "Your.Namespace",
+      "Namespace": "YOUR_NAMESPACE_HERE",
       "FoldersStructureModel": "MODEL_1",
-      "LoggerCode": "101"
+      "LoggerCode": "101",
+      "Suffixes": {
+        "Model": "Entity", // Suffix for domain or entity classes
+        "DTO": "Request" // Suffix for data transfer objects 
+ 
+      }
     }
   }
 }
@@ -333,10 +343,7 @@ dotnet tool run RepoGen initial
 - Force re-initialize the tool (overwrites existing files):
 ```bash
 dotnet tool run RepoGen initial --force
-```
-```bash
-dotnet tool run RepoGen initial -f
-```
+``` 
 ### 🔧 2. Configuration
  Customize the 'RepoGen.json' file with your specific data and save the changes.  See [RepoGen.json – Tool Configuration](#-repogenjson--tool-configuration)
 ### 🗂️ 3. Structure Setup
@@ -372,9 +379,17 @@ dotnet tool run RepoGen add --repo <YourRepoName>
 ```bash
 dotnet tool run RepoGen map --sp <YourStoredProcedureName> --repo <YourRepoName>
 ```
+- Map a stored procedure to a repository with controller endpoint:
+```bash
+dotnet tool run RepoGen map --sp <YourStoredProcedureName> --repo <YourRepoName> --controller <ControllerName> --endpoint <EndpointName> --<Method>
+```
 - Remap a stored procedure to a repository:
 ```bash
 dotnet tool run RepoGen re-map --sp <YourStoredProcedureName> --repo <YourRepoName>
+```
+- Remap a stored procedure to a repository with controller endpoint:
+```bash
+dotnet tool run RepoGen re-map --sp <YourStoredProcedureName> --repo <YourRepoName> --controller <ControllerName> --endpoint <EndpointName> --<Method>
 ```
 - Remove a mapped stored procedure:
 ```bash
@@ -385,9 +400,17 @@ dotnet tool run RepoGen remove --sp <YourStoredProcedureName> --repo <YourRepoNa
 ```bash
 dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName>
 ```
+- Generate CRUD operations for a table with endpoint generator:
+```bash
+dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName> --controller <YourControllerName>
+```
 - Force regenerate CRUD operations for a table:
 ```bash
 dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName> --force
+```
+- Force regenerate CRUD operations for a table with endpoint generator:
+```bash
+dotnet tool run RepoGen crud --tbl <YourTableName> --service <YourServiceName>  --controller <YourControllerName> --force
 ```
 ### ♻️ 8. Reset
 
@@ -435,7 +458,7 @@ dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
     },
     {
       "ID": "map-get-all-OrderItems",
-      "Command": "map --sp sp_GetAllOrderItems --repo OrderItems"
+      "Command": "map --sp sp_GetAllOrderItems --repo OrderItems --controller OrderItems --endpoint --get"
     }
 
   ]

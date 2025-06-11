@@ -442,23 +442,23 @@ dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
     },
     {
       "ID": "map-insert-OrderItems",
-      "Command": "map --sp sp_CreateOrderItem --repo OrderItems"
+      "Command": "map --sp sp_CreateOrderItem --repo OrderItems --controller OrderItems --endpoint CreateOrderItem -p"
     },
     {
       "ID": "map-update-OrderItems",
-      "Command": "map --sp sp_UpdateOrderItem --repo OrderItems"
+      "Command": "map --sp sp_UpdateOrderItem --repo OrderItems --endpoint UpdateOrderItem -u"
     },
     {
       "ID": "map-delete-OrderItems",
-      "Command": "map --sp sp_DeleteOrderItem --repo OrderItems"
+      "Command": "map --sp sp_DeleteOrderItem --repo OrderItems --controller OrderItems --endpoint DeleteOrderItem --delete"
     },
     {
       "ID": "map-get-OrderItems",
-      "Command": "map --sp sp_GetOrderItemById --repo OrderItems"
+      "Command": "map --sp sp_GetOrderItemById --repo OrderItems -g"
     },
     {
       "ID": "map-get-all-OrderItems",
-      "Command": "map --sp sp_GetAllOrderItems --repo OrderItems --controller OrderItems --endpoint --get"
+      "Command": "map --sp sp_GetAllOrderItems --repo OrderItems -c OrderItems -ep GetAllOrderItems --get"
     }
 
   ]

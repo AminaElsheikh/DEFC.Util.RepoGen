@@ -131,7 +131,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 - **DBContextName**: The base name for your DBContext. The tool will automatically append "DBContext" to it.
 - **ConnectionString**: A valid connection string to your database.
 - **Namespace**: The application namespace used in the generated code.
-- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or [`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md) for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
+- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or [`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSOM-guide) for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
 - **LoggerCode**: Controls logger generation for Command (Individual CLI operations) & Batch (JSON-scripted multi-step executions).
 - **Suffixes**: Controls Suffixes for model and entity classes.
 
@@ -233,7 +233,7 @@ Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at 
 
 ### 🧱 `MODEL_CUSTOM` – Custom User-Defined Structure
 
-[`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md) allows you to define your **own folder structure** to fit your specific project architecture. 
+[`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSOM-guide) allows you to define your **own folder structure** to fit your specific project architecture. 
 This model is designed for advanced users or teams that already follow a customized layout and want to integrate `RepoGen` seamlessly.
 
 ✅ **Use When**:
@@ -532,9 +532,9 @@ You can find a sample app that demonstrates how to configure and use `DEFC.Util.
 to generate repositories and unit of work patterns for SQL Server stored procedures.
 
 - **Example Usage**: 
-> See the [Step-by-step practice sample guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore)
+> See the [Step-by-step practice sample guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-guide)
 
-> See the [Step-by-step practice sample with MODEL_CUSOM  guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen-SampleStore/blob/main/Custom-Model-README.md)
+> See the [Step-by-step practice sample with MODEL_CUSOM  guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSOM-guide)
 
 The sample app includes:
 - **Basic Setup**: How to configure `RepoGen.json` for your project.

@@ -76,6 +76,18 @@ NuGet tool that implements the **repository** and **unit of work** patterns by a
 - **Promotes Maintainability**: When working with stored procedures, the tool keeps the codebase more organized and easier to maintain, as the SP logic is encapsulated in the repository.
 - **Speeds Up Development**: Instead of writing repetitive code, developers can focus more on writing business logic by using the generated repositories.
 
+## 🛠️ Key Features
+
+- ✅ **Automatic Repository Generation** – Generates repository classes mapped to SQL Server stored procedures.
+- ✅ **Unit of Work Integration** – Creates a `UnitOfWork` class to manage transactions across repositories.
+- ✅ **Stored Procedure Mapping** – Automates method creation inside repositories that correspond to stored procedures.
+- ✅ **CRUD Generator** – Generates full CRUD (Create, Read, Update, Delete) logic and models for SQL tables.
+- ✅ **Clean Architecture Support** – Supports multiple folder structures: Clean, Layered, Hexagonal, or Custom.
+- ✅ **Batch Command Execution** – Run multiple operations from a JSON batch script.
+- ✅ **Dynamic DTO & Model Generation** – Generates Data Transfer Objects and domain models from stored procedures or tables.
+- ✅ **Endpoint Creation** – Auto-generates RESTful controller endpoints (e.g., POST, GET, PUT, DELETE) alongside SP and CRUD mappings.
+- ✅ **Offline & Secure** – Operates fully offline with no external calls or telemetry.
+
 ## 🔌 Supported Technologies
 The tool is designed to work seamlessly within modern .NET environments using clean architecture principles.
 
@@ -131,7 +143,7 @@ The `RepoGen.json` file is the primary configuration file used by the `DEFC.Util
 - **DBContextName**: The base name for your DBContext. The tool will automatically append "DBContext" to it.
 - **ConnectionString**: A valid connection string to your database.
 - **Namespace**: The application namespace used in the generated code.
-- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or [`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSOM-guide) for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
+- **FoldersStructureModel**: Choose between different folder structure models (e.g., `MODEL_1` for default, `MODEL_2` for layered, `MODEL_3` for hexagonal or [`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSTOM-guide) for user-defined model). See: [Folder Structure Models](#-folder-structure-models)
 - **LoggerCode**: Controls logger generation for Command (Individual CLI operations) & Batch (JSON-scripted multi-step executions).
 - **Suffixes**: Controls Suffixes for model and entity classes.
 
@@ -233,7 +245,7 @@ Implements **Hexagonal (a.k.a. Onion) Architecture**, placing business logic at 
 
 ### 🧱 `MODEL_CUSTOM` – Custom User-Defined Structure
 
-[`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSOM-guide) allows you to define your **own folder structure** to fit your specific project architecture. 
+[`MODEL_CUSTOM`](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSTOM-guide) allows you to define your **own folder structure** to fit your specific project architecture. 
 This model is designed for advanced users or teams that already follow a customized layout and want to integrate `RepoGen` seamlessly.
 
 ✅ **Use When**:
@@ -433,6 +445,7 @@ dotnet tool run RepoGen batch --file <YourBatchFileWithoutExtension>
 ```
 
 #### Batch File Sample
+
 ```json
 {
   "Commands": [
@@ -534,7 +547,7 @@ to generate repositories and unit of work patterns for SQL Server stored procedu
 - **Example Usage**: 
 > See the [Step-by-step practice sample guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-guide)
 
-> See the [Step-by-step practice sample with MODEL_CUSOM  guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSOM-guide)
+> See the [Step-by-step practice sample with MODEL_CUSOM  guide](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/wiki/Step-by-step-practice-sample-with-MODEL_CUSTOM-guide)
 
 The sample app includes:
 - **Basic Setup**: How to configure `RepoGen.json` for your project.

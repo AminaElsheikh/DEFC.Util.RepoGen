@@ -67,6 +67,14 @@ The tool organizes generated code into seven main folders to promote clean archi
 - **DTOs** – Data transfer objects for client-facing and API-layer interactions.
 - **Services** – Business logic and application service layer implementations.
 
+
+## ⚠️ Scope Notice
+> DEFC.Util.RepoGen is best suited for single-project solutions or smaller-scale applications where 
+> repository, unit of work, and stored procedure mapping can all reside within a unified project structure.
+> For enterprise-scale, multi-project solutions (e.g., API, Application, Domain, Infrastructure as separate projects), 
+> we’re excited to announce that DEFC.Util.RepoGen.Enterprise is coming soon. It will offer advanced support for modular architectures, 
+> cross-project generation, and enterprise-grade customization.
+
 ## 🎯 Objective
 NuGet tool that implements the **repository** and **unit of work** patterns by automating the creation of repositories mapped to database **stored procedures (SPs)**. This enhances developer productivity and helps maintain clean architecture in .NET applications.
 

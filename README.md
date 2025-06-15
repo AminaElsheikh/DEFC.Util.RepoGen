@@ -67,6 +67,23 @@ The tool organizes generated code into seven main folders to promote clean archi
 - **DTOs** – Data transfer objects for client-facing and API-layer interactions.
 - **Services** – Business logic and application service layer implementations.
 
+- 
+## 🚧 Beta Version Notice
+> **🔬 This is a Beta Release**
+> `DEFC.Util.RepoGen` is currently in beta and under active testing. While it is functional and ready for 
+> practical use, we are still refining and improving the tool based on user feedback.
+
+We invite developers and teams to **test the tool** in real-world scenarios and help us identify bugs, edge cases, or areas for improvement.
+Your feedback is valuable and will directly contribute to shaping the **final stable release**.
+
+### 🧪 How You Can Help:
+
+- Try using the tool in a real .NET project
+- Report issues or bugs via the [GitHub Issues page](https://github.com/AminaElsheikh/DEFC.Util.RepoGen/issues)
+- Share suggestions or improvements
+- Contribute usage scenarios or sample batch files
+> 🙏 Thank you for supporting the development of `DEFC.Util.RepoGen`. 
+> Let’s build something great together!
 
 ## ⚠️ Scope Notice
 > **DEFC.Util.RepoGen** is best suited for **single-project solutions** or smaller-scale applications where 

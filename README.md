@@ -158,7 +158,10 @@ You can run the tool using any of the following:
 ## 📦 Installation
 Install the NuGet Package **DEFC.Util.RepoGen** with version **1.0.0-beta** using the following command:
 ```bash
-dotnet add package DEFC.Util.RepoGen --version 1.0.0-beta
+dotnet new tool-manifest
+```
+```bash
+dotnet tool install --local DEFC.Util.RepoGen --version 1.0.0-beta
 ```
 ## 🔧 RepoGen.json – Tool Configuration
 
